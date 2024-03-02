@@ -22,6 +22,6 @@ app.use(cookieParser())
 const PORT = process.env.PORT || 3000
 
 //Routes
-app.use('/api/users', userRoutes)
+app.use('/api/v1/users', userRoutes)
 
 app.listen(PORT, ()=>console.log(`Server is running on port ${PORT}`))

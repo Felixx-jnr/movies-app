@@ -15,7 +15,6 @@ const createUser = asyncHandler(async (req, res)=>{
   const userExist =await User.findOne({email})
   if (userExist) res.status(400).send('User already exists')
 
-  
 })
 
 module.exports = createUser;
