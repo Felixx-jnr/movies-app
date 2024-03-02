@@ -1,10 +1,12 @@
 const express = require('express')
 
 //controllers
+
+const createUser = require('../controllers/userController');
 //middlewares
 
 const router = express.Router()
 
-router.route('/').post(creatUser)
+router.route('/').post(createUser)
 
-export default router;
+module.exports = router;

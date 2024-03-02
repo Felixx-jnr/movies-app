@@ -6,6 +6,7 @@ const path = require('path');
 
 //Files 
 const connectDB = require('./config/db');
+const userRoutes = require('./routes/userRoutes')
 
 //configuration
 dotenv.config();
