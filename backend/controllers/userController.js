@@ -65,6 +65,7 @@ const loginUser = asyncHandler(async (req, res) =>{
   }
 })
 
+//LOGOUT CURRENT USER
 const logoutCurrentUser = asyncHandler(async(req, res) =>{
   res.cookie("jwt", "",{
     httpOnly: true,
@@ -74,8 +75,61 @@ const logoutCurrentUser = asyncHandler(async(req, res) =>{
   res.status(200).json({message: "logged out successfully"})
 })
 
-//LOGOUT CURRENT USER
+//GET ALL USERS
+const getAllUsers = asyncHandler(async(req, res)=>{
+  const users = await User.find({})
+  res.json(users)
+})
+
+//GET CURRENT USER
+const getCurrentUserProfile = asyncHandler(async(req, res)=>{
+  const user = await User.findById(req.user._id);
+
+  if(user){
+    res.json({
+      _id: user._id,
+      username: user.username,
+      email: user.email,
+    })
+  } else {
+    res.status(404);
+    throw new('User not found')
+  }
+  
+})
+
+//UPDATE A USER
+const updateCurrentUserProfile = asyncHandler(async(req, res)=>{
+  const user = await User.findById(req.user._id);
+
+  if(user){
+    user.username = req.body.username || user.username;
+    user.email = req.body.email || user.email;
+    
+    if(req.body.password){
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(req.body.password, salt);
+      user.password = hashedPassword;
+    }
+
+    const updatedUser = await user.save()
+
+    res.json({
+      _id: updatedUser._id,
+      username: updatedUser.username,
+      email: updatedUser.email,
+      isAdmin: updatedUser.isAdmin
+    })
+
+  } else {
+    res.status(404)
+    throw new Error('User not found')
+
+  }
+  
+})
+
 
 module.exports = {
-  loginUser, createUser, logoutCurrentUser
+  loginUser, createUser, logoutCurrentUser, getAllUsers, getCurrentUserProfile, updateCurrentUserProfile
 };
