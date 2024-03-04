@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import store from './redux/store';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'; // Import BrowserRouter and Routes
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Import BrowserRouter and Routes
 
 import Home from './pages/Home';
 
@@ -15,7 +15,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index={true} element={<Home />} />
+          <Route index element={<Home />} />
         </Route>
       </Routes>
     </BrowserRouter>
