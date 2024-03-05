@@ -11,6 +11,8 @@ const createUser = asyncHandler(async (req, res)=> {
   if (!username || !email || !password) {
     throw new Error("Please fill all the fields")
   }
+
+ 
  
   //check if user already exist
   const userExist = await User.findOne({email})
@@ -20,6 +22,8 @@ const createUser = asyncHandler(async (req, res)=> {
   const salt = await bcrypt.genSalt(10)
   const hashedPassword  = await bcrypt.hash(password, salt)
   const newUser = new User({ username, email, password: hashedPassword })
+
+  console.log(username, email)
 
   try {
     await newUser.save()
@@ -31,6 +35,8 @@ const createUser = asyncHandler(async (req, res)=> {
       email: newUser.email,
       isAdmin: newUser.isAdmin
     })
+
+    
 
   } catch (error) {
     res.status(400)
