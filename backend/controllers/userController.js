@@ -7,12 +7,12 @@ const createToken = require('../utils/createToken')
 const createUser = asyncHandler(async (req, res)=> {
   const {username, email, password} = req.body;
 
+ 
+
   //check if all fields have been filled
   if (!username || !email || !password) {
     throw new Error("Please fill all the fields")
   }
-
- 
  
   //check if user already exist
   const userExist = await User.findOne({email})
@@ -23,11 +23,12 @@ const createUser = asyncHandler(async (req, res)=> {
   const hashedPassword  = await bcrypt.hash(password, salt)
   const newUser = new User({ username, email, password: hashedPassword })
 
-  console.log(username, email)
+  
 
   try {
     await newUser.save()
     createToken(res, newUser._id)
+    
 
     res.status(201).json({
       _id: newUser._id,
@@ -36,8 +37,9 @@ const createUser = asyncHandler(async (req, res)=> {
       isAdmin: newUser.isAdmin
     })
 
-    
+    console.log(username, email, hashedPassword)
 
+    
   } catch (error) {
     res.status(400)
     throw new Error("Invalid user data")

@@ -46,9 +46,9 @@ const Register = () => {
       
       catch (err) {
         console.log('error')
-        // toast.error(err.data.message)
+        toast.error(err.data)
          
-      }
+      }  
 
     }
   }
