@@ -21,7 +21,6 @@ const Navigation = () => {
   const navigate = useNavigate()
 
   const [logoutApiCall] = useLogoutMutation()
-<<<<<<< Updated upstream
 
   const logoutHandler = async () => {
     try {
@@ -33,19 +32,17 @@ const Navigation = () => {
     }
   };
 
-=======
->>>>>>> Stashed changes
 
-  const logoutHandler = async () => {
-    try {
-      await logoutApiCall().unwrap();
-      dispatch(logout());
-      navigate('/login');
+  // const logoutHandler = async () => {
+  //   try {
+  //     await logoutApiCall().unwrap();
+  //     dispatch(logout());
+  //     navigate('/login');
       
-    } catch (error) {
-      console.error(error)
-    }
-  }
+  //   } catch (error) {
+  //     console.error(error)
+  //   }
+  // }
 
   return ( 
     <div className="fixed bottom-10 left-[30rem] transform translate-x-1/2 translate-y-1/2 z-50 bg-[#0f0f0f] border w-[30%] px-[4rem] mb-[2rem] rounded">
