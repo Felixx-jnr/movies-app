@@ -19,8 +19,14 @@ export const userApiSlice = apiSlice.injectEndpoints({
       }),
     }),
 
+<<<<<<< Updated upstream
     logout: builder.mutation({
       query: () => ({
+=======
+
+    logout: builder.mutation({
+      query: ()=>({
+>>>>>>> Stashed changes
         url: `${USERS_URL}/logout`,
         method: "POST",
       }),
@@ -28,5 +34,10 @@ export const userApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
+<<<<<<< Updated upstream
 export const {useLoginMutation, useRegisterMutation, useLogoutMutation} = userApiSlice;
+=======
+export const {useLoginMutation, useRegisterMutation, useLogoutMutation }
+ = userApiSlice;
+>>>>>>> Stashed changes
 
