@@ -17,11 +17,11 @@ const Register = () => {
 
   const [register, { isLoading }] = useRegisterMutation();
 
-  const { userInfo } = useSelector((state) => state.auth);
+  const {userInfo}  = useSelector((state) => state.auth);
 
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
-  const redirect = sp.get('redirect' || '/')
+  const redirect = sp.get('redirect') || '/';
 
   useEffect(()=>{
     if (userInfo) {
@@ -39,14 +39,14 @@ const Register = () => {
       try {
         const res = await register({username, email, password}).unwrap()
         dispatch(setCredentials({...res}))
-        navigate(redirect)
+        navigate(redirect);
         toast.success('User successfully registered')
         
       } 
       
-      catch (err) {
-        console.log('error')
-        toast.error(err.data)
+      catch (error) {
+        console.log(error)
+        toast.error(error.data)
          
       }  
 

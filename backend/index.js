@@ -4,6 +4,7 @@ const cookieParser = require('cookie-parser')
 const dotenv = require('dotenv');
 const path = require('path');
 
+
 //Files 
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes')
@@ -19,7 +20,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(cookieParser())
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT //|| 4000
 
 //Routes
 app.use('/api/v1/users', userRoutes)
