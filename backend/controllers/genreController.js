@@ -23,4 +23,61 @@ const createGenre = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = {createGenre}
+const updateGenre = asyncHandler(async (req, res) => {
+  try {
+    const { name } = req.body;
+    const { id } = req.params;
+    const genre = await Genre.findOne({ _id: id });
+
+    if (!genre) {
+      return res.status(404).json({ error: "Genre not found" });
+    }
+
+    genre.name = name;
+
+    const updatedGenre = await genre.save();
+    res.json(updatedGenre);
+
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+const removeGenre = asyncHandler(async (req, res) => {
+  try {
+    const { id } = req.params;
+    const removed = await Genre.findByIdAndDelete(id);
+
+    if (!removed) {
+      return res.status(404).json({ error: "Genre not found" });
+    }
+
+    res.json(removed);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Interval server error" });
+  }
+});
+
+const listGenres = asyncHandler(async (req, res) => {
+  try {
+    const all = await Genre.find({});
+    res.json(all);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error.message);
+  }
+});
+
+const getOneGenre = asyncHandler(async (req, res) => {
+  try {
+    const genre = await Genre.findOne({ _id: req.params.id });
+    res.json(genre);
+  } catch (error) {
+    console.log(error);
+    return res.status(400).json(error.message);
+  }
+});
+
+module.exports = {createGenre, updateGenre, removeGenre, listGenres, getOneGenre} 
