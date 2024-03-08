@@ -9,6 +9,7 @@ const path = require('path');
 const connectDB = require('./config/db');
 const userRoutes = require('./routes/userRoutes')
 const genreRoutes = require('./routes/genreRoutes')
+const movieRoutes = require('./routes/movieRoutes')
 
 //configuration
 dotenv.config();
@@ -26,5 +27,6 @@ const PORT = process.env.PORT //|| 4000
 //Routes
 app.use('/api/v1/users', userRoutes)
 app.use('/api/v1/genres', genreRoutes)
+app.use('/api/v1/movies', movieRoutes)
 
 app.listen(PORT, ()=>console.log(`Server is running on port ${PORT}`))
