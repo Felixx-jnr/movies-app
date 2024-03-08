@@ -13,6 +13,10 @@ import Login from './pages/Auth/Login';
 import Register from './pages/Auth/Register';
 import PrivateRoute from "./pages/Auth/PrivateRoute.jsx";
 
+//AUTH
+import AdminRoute from './pages/Admin/AdminRoute.jsx';
+import GenreList from './pages/Admin/GenreList.jsx';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
@@ -26,8 +30,13 @@ root.render(
 
           <Route path='' element={<PrivateRoute/>}>
             <Route path='/profile' element={<Profile/>}/>
-
           </Route>
+
+          <Route path='' element={<AdminRoute/>}>
+            <Route path='/admin/movies/genre' element={<GenreList/>}/>
+          </Route>
+
+
 
         </Route>
       </Routes>
