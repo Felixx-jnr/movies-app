@@ -100,4 +100,87 @@ const movieReview = async (req, res) => {
   }
 };
 
-module.exports = {createMovie, getAllMovies, getSpecificMovie, updateMovie, movieReview}
+//DELETE A MOVIE
+const deleteMovie = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteMovie = await Movie.findByIdAndDelete(id);
+
+    if (!deleteMovie) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    res.json({ message: "Movie Deleted Successfully" });
+
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//DELETE COMMENT
+const deleteComment = async (req, res) => {
+  try {
+    const { movieId, reviewId } = req.body;
+    const movie = await Movie.findById(movieId);
+
+    if (!movie) {
+      return res.status(404).json({ message: "Movie not found" });
+    }
+
+    const reviewIndex = movie.reviews.findIndex(
+      (r) => r._id.toString() === reviewId 
+    );
+
+    if (reviewIndex === -1) {
+      return res.status(404).json({ message: "Comment not found" });
+    }
+
+    movie.reviews.splice(reviewIndex, 1);
+    movie.numReviews = movie.reviews.length;
+    movie.rating =
+      movie.reviews.length > 0
+        ? movie.reviews.reduce((acc, item) => item.rating + acc, 0) /
+          movie.reviews.length
+        : 0;
+
+    await movie.save();
+    res.json({ message: "Comment Deleted Successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//GET NEW MOVIES
+const getNewMovies = async (req, res) => {
+  try {
+    const newMovies = await Movie.find().sort({ createdAt: -1 }).limit(10);
+    res.json(newMovies);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//GET TOP MOVIES
+const getTopMovies = async (req, res) => {
+  try {
+    const topRatedMovies = await Movie.find()
+      .sort({ numReviews: -1 })
+      .limit(10);
+    res.json(topRatedMovies);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+//GET RANDOM MOVIES
+const getRandomMovies = async (req, res) => {
+  try {
+    const randomMovies = await Movie.aggregate([{ $sample: { size: 10 } }]);
+    res.json(randomMovies);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+};
+
+module.exports = {createMovie, getAllMovies, getSpecificMovie, updateMovie, movieReview, deleteMovie, deleteComment, getTopMovies, getNewMovies, getRandomMovies}
