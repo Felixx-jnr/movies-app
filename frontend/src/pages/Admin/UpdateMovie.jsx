@@ -68,7 +68,7 @@ const UpdateMovie = () => {
       let uploadedImagePath = movieData.image;
 
       if (selectedImage) {
-        const formData = new formData();
+        const formData = new FormData();
         formData.append("image", selectedImage);
 
         const uploadImageResponse = await uploadImage(formData);
