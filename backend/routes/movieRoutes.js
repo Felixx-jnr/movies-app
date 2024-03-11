@@ -35,7 +35,7 @@ router.post('/reviews/:id', authenticate, checkId, movieReview)
 
 //ADMIN ROUTES
 //CREATE A MOVIE
-router.post('/create-movie', authenticate, authorizeAdmin, createMovie)
+router.post('/create', authenticate, authorizeAdmin, createMovie)
 
 //UPDATE A MOVIE
 router.put('/update-movie/:id', authenticate, authorizeAdmin, updateMovie)

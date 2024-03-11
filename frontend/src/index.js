@@ -16,6 +16,7 @@ import PrivateRoute from "./pages/Auth/PrivateRoute.jsx";
 //AUTH
 import AdminRoute from './pages/Admin/AdminRoute.jsx';
 import GenreList from './pages/Admin/GenreList.jsx';
+import CreateMovie from './pages/Admin/CreateMovie.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -34,6 +35,7 @@ root.render(
 
           <Route path='' element={<AdminRoute/>}>
             <Route path='/admin/movies/genre' element={<GenreList/>}/>
+            <Route path='/admin/movies/create' element={<CreateMovie/>}/>
           </Route>
 
 
