@@ -27,7 +27,7 @@ const AdminMoviesList = () => {
 
                   <div className="mt-[2rem] mb-[1rem]">
                     
-                    <Link to={`/admin/movies/update/${movie._id}`} className="bg-teal-500 hover:bg-teal-700 text-white font-bold" >
+                    <Link to={`/admin/movies/update/${movies._id}`} className="bg-teal-500 hover:bg-teal-700 text-white font-bold" >
                       Update Movie
                     </Link>
                   </div>

@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import {
-  useCreateMovieMutation,
+  useGetSpecificMovieQuery,
+  useUpdateMovieMutation,
   useUploadImageMutation,
+  useDeleteMovieMutation,
 } from "../../redux/api/movies";
-import { useFetchGenresQuery } from "../../redux/api/genre";
 import { toast } from "react-toastify";
 
-const CreateMovie = () => {
+const UpdateMovie = () => {
+  const { id } = useParams();
   const navigate = useNavigate();
 
   const [movieData, setMovieData] = useState({
@@ -15,51 +17,35 @@ const CreateMovie = () => {
     year: 0,
     detail: "",
     cast: [],
-    rating: 0,
+    ratings: 0,
     image: null,
-    genre: "",
   });
 
   const [selectedImage, setSelectedImage] = useState(null);
+  const { data: initialMovieData } = useGetSpecificMovieQuery(id);
 
-  const [
-    createMovie,
-    { isLoading: isCreatingMovie, error: createMovieErrorDetail },
-  ] = useCreateMovieMutation();
+  useEffect(() => {
+    if (initialMovieData) {
+      setMovieData(initialMovieData);
+    }
+  }, [initialMovieData]);
+
+  const [updateMovie, { isLoading: isUpdatingMovie }] =
+    useUpdateMovieMutation();
 
   const [
     uploadImage,
     { isLoading: isUploadingImage, error: uploadImageErrorDetails },
   ] = useUploadImageMutation();
 
-  const { data: genres, isLoading: isLoadingGenres } = useFetchGenresQuery();
-
-  useEffect(() => {
-    if (genres) {
-      setMovieData((prevData) => ({
-        ...prevData,
-        genre: genres[0]?._id || "",
-      }));
-      console.log(genres[0]?._id);
-    }
-  }, [genres]);
+  const [deleteMovie] = useDeleteMovieMutation();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-
-    if (name === "genre") {
-      const selectedGenre = genres.find((genre) => genre.name === value);
-
-      setMovieData((prevData) => ({
-        ...prevData,
-        genre: selectedGenre ? selectedGenre._id : "",
-      }));
-    } else {
-      setMovieData((prevData) => ({
-        ...prevData,
-        [name]: value,
-      }));
-    }
+    setMovieData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
   };
 
   const handleImageChange = (e) => {
@@ -67,23 +53,22 @@ const CreateMovie = () => {
     setSelectedImage(file);
   };
 
-  const handleCreateMovie = async () => {
+  const handleUpdateMovie = async () => {
     try {
       if (
         !movieData.name ||
         !movieData.year ||
         !movieData.detail ||
-        !movieData.cast ||
-        !selectedImage
+        !movieData.cast
       ) {
-        toast.error("Please fill all required fields");
+        toast.error("Fill in all the required fields");
         return;
       }
 
-      let uploadedImagePath = null;
+      let uploadedImagePath = movieData.image;
 
       if (selectedImage) {
-        const formData = new FormData();
+        const formData = new formData();
         formData.append("image", selectedImage);
 
         const uploadImageResponse = await uploadImage(formData);
@@ -91,40 +76,40 @@ const CreateMovie = () => {
         if (uploadImageResponse.data) {
           uploadedImagePath = uploadImageResponse.data.image;
         } else {
-          console.error("Failed to upload image: ", uploadImageErrorDetails);
+          console.error("Failed to upload image", uploadImageErrorDetails);
           toast.error("Failed to upload image");
           return;
         }
 
-        await createMovie({
-          ...movieData,
-          image: uploadedImagePath,
+        await updateMovie({
+          id: id,
+          updatedMovie: {
+            ...movieData,
+            image: uploadedImagePath,
+          },
         });
-
-        navigate("/admin/movies-list");
-
-        setMovieData({
-          name: "",
-          year: 0,
-          detail: "",
-          cast: [],
-          rating: 0,
-          image: null,
-          genre: "",
-        });
-
-        toast.success("Movie Added To Database");
+        navigate("/movies");
       }
     } catch (error) {
-      console.error("Failed to create movie: ", createMovieErrorDetail);
-      toast.error(`Failed to create movie: ${createMovieErrorDetail?.message}`);
+      console.error("Failed to update movie:", error);
+    }
+  };
+
+  const handleDeleteMovie = async () => {
+    try {
+      toast.success("Movie deleted successfully");
+      await deleteMovie(id);
+      navigate("/movies");
+    } catch (error) {
+      console.error("Failed to delete movie:", error);
+      toast.error(`Failed to delete movie: ${error?.message}`);
     }
   };
 
   return (
     <div className="container flex justify-center items-center mt-4">
       <form>
-        <p className="text-green-200 w-[50rem] text-2xl mb-4">Create Movie</p>
+        <p className="text-green-200 w-[50rem] text-2xl mb-4">Update Movie</p>
 
         <div className="mb-4">
           <label className="block">
@@ -160,7 +145,7 @@ const CreateMovie = () => {
               value={movieData.detail}
               onChange={handleChange}
               className="border px-2 py-1 w-full"
-            ></textarea>
+            />
           </label>
         </div>
 
@@ -180,28 +165,6 @@ const CreateMovie = () => {
         </div>
 
         <div className="mb-4">
-          <label className="block">
-            Genre:
-            <select
-              name="genre"
-              value={movieData.genre}
-              onChange={handleChange}
-              className="border px-2 py-1 w-full"
-            >
-              {isLoadingGenres ? (
-                <option>Loading genres...</option>
-              ) : (
-                genres.map((genre) => (
-                  <option key={genre.id} value={genre.id}>
-                    {genre.name}
-                  </option>
-                ))
-              )}
-            </select>
-          </label>
-        </div>
-
-        <div className="mb-4">
           <label
             style={
               !selectedImage
@@ -210,7 +173,11 @@ const CreateMovie = () => {
                     borderRadius: "5px",
                     padding: "8px",
                   }
-                : { border: "0", borderRadius: "0", padding: "0" }
+                : {
+                    border: "0",
+                    borderRadius: "0",
+                    padding: "0",
+                  }
             }
           >
             {!selectedImage && "Upload Image"}
@@ -225,15 +192,24 @@ const CreateMovie = () => {
 
         <button
           type="button"
-          onClick={handleCreateMovie}
+          onClick={handleUpdateMovie}
           className="bg-teal-500 text-white px-4 py-2 rounded"
-          disabled={isCreatingMovie || isUploadingImage}
+          disabled={isUpdatingMovie || isUploadingImage}
         >
-          {isCreatingMovie || isUploadingImage ? "Creating..." : "Create Movie"}
+          {isUpdatingMovie || isUploadingImage ? "Updating..." : "Update Movie"}
+        </button>
+
+        <button
+          type="button"
+          onClick={handleDeleteMovie}
+          className="bg-red-500 text-white px-4 py-2 rounded ml-2"
+          disabled={isUpdatingMovie || isUploadingImage}
+        >
+          {isUpdatingMovie || isUploadingImage ? "Deleting..." : "Delete Movie"}
         </button>
       </form>
     </div>
   );
 };
 
-export default CreateMovie;
+export default UpdateMovie;
