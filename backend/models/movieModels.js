@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema;
 
 const reviewSchema = mongoose.Schema(
@@ -13,7 +13,7 @@ const reviewSchema = mongoose.Schema(
     },
   },
   { timestamps: true }
-); 
+);
 
 const movieSchema = new mongoose.Schema(
   {

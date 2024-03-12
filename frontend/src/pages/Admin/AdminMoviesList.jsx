@@ -20,10 +20,7 @@ const AdminMoviesList = () => {
                 className="block mb-4 overflow-hidden"
               >
                 <div className="flex">
-                  <div
-                    key={movie._id}
-                    className="max-w-sm  m-[2rem] rounded overflow-hidden shadow-lg"
-                  >
+                  <div className="max-w-sm  m-[2rem] rounded overflow-hidden shadow-lg">
                     <img
                       src={movie.image}
                       alt={movie.name}
