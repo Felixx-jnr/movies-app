@@ -19,6 +19,7 @@ import GenreList from "./pages/Admin/GenreList.jsx";
 import CreateMovie from "./pages/Admin/CreateMovie.jsx";
 import AdminMoviesList from "./pages/Admin/AdminMoviesList.jsx";
 import UpdateMovie from "./pages/Admin/UpdateMovie.jsx";
+import AllMovies from "./pages/Movies/AllMovies.jsx";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -33,6 +34,11 @@ root.render(
           <Route
             index
             element={<Home />}
+          />
+
+          <Route
+            path="/movies"
+            element={<AllMovies />}
           />
 
           <Route
