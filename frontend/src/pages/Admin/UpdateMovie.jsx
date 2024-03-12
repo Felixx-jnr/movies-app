@@ -26,7 +26,15 @@ const UpdateMovie = () => {
 
   useEffect(() => {
     if (initialMovieData) {
-      setMovieData(initialMovieData);
+      setMovieData({
+        name: initialMovieData.name || "",
+        year: initialMovieData.year || 0,
+        detail: initialMovieData.detail || "okon",
+        cast: initialMovieData.cast || [],
+        ratings: initialMovieData.ratings || 0,
+        image: initialMovieData.image || null,
+      });
+      console.log(initialMovieData);
     }
   }, [initialMovieData]);
 

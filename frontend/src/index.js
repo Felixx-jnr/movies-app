@@ -34,10 +34,12 @@ root.render(
             index
             element={<Home />}
           />
+
           <Route
             path="/login"
             element={<Login />}
           />
+
           <Route
             path="/register"
             element={<Register />}
@@ -70,7 +72,7 @@ root.render(
               element={<AdminMoviesList />}
             />
             <Route
-              path="/admin/movies/update-movie/:id"
+              path="/admin/movies/update/:id"
               element={<UpdateMovie />}
             />
           </Route>
