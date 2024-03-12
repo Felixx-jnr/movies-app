@@ -26,14 +26,7 @@ const UpdateMovie = () => {
 
   useEffect(() => {
     if (initialMovieData) {
-      setMovieData({
-        name: initialMovieData.name || "",
-        year: initialMovieData.year || 0,
-        detail: initialMovieData.detail || "okon",
-        cast: initialMovieData.cast || [],
-        ratings: initialMovieData.ratings || 0,
-        image: initialMovieData.image || null,
-      });
+      setMovieData(initialMovieData);
       console.log(initialMovieData);
     }
   }, [initialMovieData]);
@@ -67,7 +60,8 @@ const UpdateMovie = () => {
         !movieData.name ||
         !movieData.year ||
         !movieData.detail ||
-        !movieData.cast
+        !movieData.cast ||
+        !movieData.image
       ) {
         toast.error("Fill in all the required fields");
         return;
