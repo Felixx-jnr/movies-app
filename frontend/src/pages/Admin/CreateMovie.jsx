@@ -108,7 +108,7 @@ const CreateMovie = () => {
           year: 0,
           detail: "",
           cast: [],
-          rating: 0,
+          ratings: 0,
           image: null,
           genre: "",
         });
@@ -125,7 +125,6 @@ const CreateMovie = () => {
     <div className="container flex justify-center items-center mt-4">
       <form>
         <p className="text-green-200 w-[50rem] text-2xl mb-4">Create Movie</p>
-
         <div className="mb-4">
           <label className="block">
             Name:
@@ -138,7 +137,6 @@ const CreateMovie = () => {
             />
           </label>
         </div>
-
         <div className="mb-4">
           <label className="block">
             Year:
@@ -151,7 +149,6 @@ const CreateMovie = () => {
             />
           </label>
         </div>
-
         <div className="mb-4">
           <label className="block">
             Detail:
@@ -163,7 +160,6 @@ const CreateMovie = () => {
             ></textarea>
           </label>
         </div>
-
         <div className="mb-4">
           <label className="block">
             Cast (comma-separated):
@@ -178,7 +174,6 @@ const CreateMovie = () => {
             />
           </label>
         </div>
-
         <div className="mb-4">
           <label className="block">
             Genre:
@@ -213,7 +208,11 @@ const CreateMovie = () => {
                     borderRadius: "5px",
                     padding: "8px",
                   }
-                : { border: "0", borderRadius: "0", padding: "0" }
+                : {
+                    border: "0",
+                    borderRadius: "0",
+                    padding: "0",
+                  }
             }
           >
             {!selectedImage && "Upload Image"}
@@ -238,5 +237,4 @@ const CreateMovie = () => {
     </div>
   );
 };
-
 export default CreateMovie;
