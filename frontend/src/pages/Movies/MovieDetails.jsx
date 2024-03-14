@@ -33,6 +33,8 @@ const MovieDetails = () => {
     } catch (error) {
       toast.error(error.data || error.message);
     }
+
+    setComment("");
   };
 
   return (
