@@ -143,8 +143,7 @@ const AllMovies = () => {
                 </select>
               </section>
             </section>
-          </div>
-
+          </div>{" "}
           <section className="mt-[10rem] w-screen flex justify-center items-center flex-wrap">
             {filteredMovies?.map((movie) => (
               <MovieCard
