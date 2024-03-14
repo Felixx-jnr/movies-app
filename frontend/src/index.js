@@ -30,6 +30,8 @@ root.render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
+        {/* PUBLIC ROUTES */}
+
         <Route
           path="/"
           element={<App />}
@@ -70,6 +72,7 @@ root.render(
             />
           </Route>
 
+          {/* ADMIN ROUTES */}
           <Route
             path=""
             element={<AdminRoute />}
