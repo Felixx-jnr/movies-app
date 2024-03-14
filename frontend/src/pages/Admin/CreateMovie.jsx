@@ -188,7 +188,7 @@ const CreateMovie = () => {
               ) : (
                 genres.map((genre) => (
                   <option
-                    key={genre.id}
+                    key={genre._id}
                     value={genre.id}
                   >
                     {genre.name}

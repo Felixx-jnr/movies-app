@@ -1,11 +1,11 @@
-// import Main from "./Main/Main";
-// import Sidebar from "./Sidebar/Sidebar";
+import Main from "./Main/Main";
+import Sidebar from "./Sidebar/Sidebar";
 
 const AdminDashboard = () => {
   return (
     <>
-      {/* <Sidebar />
-      <Main /> */}
+      <Sidebar />
+      <Main />
     </>
   );
 };
