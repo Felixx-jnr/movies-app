@@ -37,16 +37,16 @@ const Navigation = () => {
   };
 
   return (
-    <div className="fixed bottom-10 left-[30rem] transform translate-x-1/2 translate-y-1/2 z-50 bg-[#0f0f0f] border w-[30%] px-[4rem] mb-[2rem] rounded">
+    <div className="fixed left-0 top-[50%] bg-[#d64040] border rounded;">
       <section className="flex justify-between items-center">
         {/* Section 1 */}
-        <div className="flex justify-center items-center mb-[2rem]">
+        <div className="flex justify-center items-center">
           <Link
             to="/"
-            className="flex items-center transition-transform transform hover:translate-x-2"
+            className="flex items-center rotate-360 "
           >
             <AiOutlineHome
-              className="mr-2 mt-[3rem]"
+              className="m-0 p-0"
               size={26}
             />
             <span className="hidden nav-item-name mt-[3rem]">Home</span>

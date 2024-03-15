@@ -48,15 +48,15 @@ const Register = () => {
   };
 
   return (
-    <div className="m">
-      <div className="mr-[4rem] mt-[5rem]">
-        <h1 className="text-2xl font-semibold mb-4">Register</h1>
+    <div className="relative max-w-[60%] w-[40rem] mx-auto">
+      <div className="">
+        <h1 className="text-4xl font-bold mx-0 my-7 text-red-500">REGISTER</h1>
 
         <form
           onSubmit={submitHandler}
-          className="container w-[40rem]"
+          className="container mx-0"
         >
-          <div className="my-[2rem]">
+          <div className="mb-[2rem] mt-[1rem]">
             <label
               htmlFor="name"
               className="block text-sm font-medium text-white"
@@ -127,7 +127,7 @@ const Register = () => {
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-teal-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
+            className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
           >
             {isLoading ? "Registering..." : "Register"}
           </button>
@@ -135,12 +135,12 @@ const Register = () => {
           {isLoading && <Loader />}
         </form>
 
-        <div className="mt-4">
+        <div className="my-4">
           <p className="text-white">
             Already have an account?{" "}
             <Link
               to={redirect ? `/login?redirect=${redirect}` : "/login"}
-              className="text-teal-500 hover:underline"
+              className="text-red-500 hover:underline"
             >
               Login
             </Link>

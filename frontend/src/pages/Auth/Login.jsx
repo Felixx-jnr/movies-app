@@ -41,9 +41,9 @@ const Login = () => {
 
   return (
     <div>
-      <section className="">
-        <div className="mr-[4rem] mt-[5rem]">
-          <h1 className="text-2xl font-semibold mb-4">Sign In</h1>
+      <section className="relative max-w-[80%] w-[50rem] mx-auto">
+        <div className="mt-[5rem]">
+          <h1 className="text-4xl text-red-500 font-bold mb-4">LOG IN</h1>
 
           <form onSubmit={submitHandler}>
             <div className="my-[2rem]">
@@ -84,9 +84,9 @@ const Login = () => {
             <button
               disabled={isLoading}
               type="submit"
-              className="bg-teal-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
+              className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
             >
-              {isLoading ? "Signing In ..." : "Sign In"}
+              {isLoading ? "Logging In ..." : "Log In"}
             </button>
             {isLoading && <Loader />}
           </form>
@@ -97,9 +97,9 @@ const Login = () => {
               New Customer?{" "}
               <Link
                 to={redirect ? `/register?redirect=${redirect}` : "/register"}
-                className="text-teal-500 hover:underline"
+                className="text-red-500 hover:underline"
               >
-                Register
+                Sign Up
               </Link>
             </p>
           </div>
