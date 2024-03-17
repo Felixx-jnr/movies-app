@@ -37,6 +37,9 @@ const Login = () => {
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }
+
+    setPassword("");
+    setEmail("");
   };
 
   return (

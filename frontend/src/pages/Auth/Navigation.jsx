@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import {
   AiOutlineHome,
   AiOutlineLogin,
@@ -14,10 +14,25 @@ import { toast } from "react-toastify";
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(true);
+  const dropdownRef = useRef(true);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdown(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   const toggleDropdown = () => {
-    setDropdownOpen(!dropdownOpen);
+    setDropdown(!dropdown);
   };
 
   const dispatch = useDispatch();
@@ -37,16 +52,13 @@ const Navigation = () => {
   };
 
   return (
-    <div className="fixed left-0 top-[50%] bg-[#d64040] border rounded;">
-      <section className="flex justify-between items-center">
+    <div className=" fixed left-0 top-[50%] bg-[#d64040] border rounded z-10 ml-2 p-2">
+      <section className="">
         {/* Section 1 */}
-        <div className="flex justify-center items-center">
-          <Link
-            to="/"
-            className="flex items-center rotate-360 "
-          >
+        <div className="">
+          <Link to="/">
             <AiOutlineHome
-              className="m-0 p-0"
+              className="mb-4"
               size={26}
             />
             <span className="hidden nav-item-name mt-[3rem]">Home</span>
@@ -54,10 +66,10 @@ const Navigation = () => {
 
           <Link
             to="movies"
-            className="flex items-center transition-transform transform hover:translate-x-2 ml-[1rem]"
+            className=""
           >
             <MdOutlineLocalMovies
-              className="mr-2 mt-[3rem]"
+              className="mb-4"
               size={26}
             />
             <span className="hidden nav-item-name mt-[3rem]">SHOP</span>
@@ -66,13 +78,16 @@ const Navigation = () => {
 
         {/* section 2 */}
 
-        <div className="relative">
+        <div
+          ref={dropdownRef}
+          className="duration-75"
+        >
           <button
             onClick={toggleDropdown}
             className="text-gray-800 focus:outline-none"
           >
             {userInfo ? (
-              <span className="text-white">{userInfo.username}</span>
+              <span className="text-white capitalize ">Menu</span>
             ) : (
               <></>
             )}
@@ -81,7 +96,7 @@ const Navigation = () => {
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={`h-4 w-4 ml-1 ${
-                  dropdownOpen ? "transform rotate-180" : ""
+                  dropdown ? "transform rotate-180" : ""
                 }`}
                 fill="none"
                 viewBox="0 0 24 24"
@@ -91,15 +106,15 @@ const Navigation = () => {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d={dropdownOpen ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
+                  d={dropdown ? "M5 15l7-7 7 7" : "M19 9l-7 7-7-7"}
                 />
               </svg>
             )}
           </button>
 
-          {dropdownOpen && userInfo && (
+          {dropdown && userInfo && (
             <ul
-              className={`absolute right-0 mt-2 mr-14 w-[10rem] space-y-2 bg-white text-gray-600 ${
+              className={`absolute left-16 mt-2 mr-14 w-[10rem] space-y-2 bg-red-200 text-gray-600 ${
                 !userInfo.isAdmin ? "-top-20" : "-top-24"
               }`}
             >
@@ -137,14 +152,14 @@ const Navigation = () => {
           )}
 
           {!userInfo && (
-            <ul className="flex">
+            <ul className="">
               <li>
                 <Link
                   to="/login"
-                  className="flex items-center mt-5 transition-transform transform hover:translate-x-2 mb-[2rem]"
+                  className=""
                 >
                   <AiOutlineLogin
-                    className="mr-2 mt-[4px]"
+                    className="mb-4"
                     size={26}
                   />
                   <span className="hidden nav-item-name">LOGIN</span>
@@ -154,7 +169,7 @@ const Navigation = () => {
               <li>
                 <Link
                   to="/register"
-                  className="flex items-center mt-5 transition-transform transform hover:translate-x-2 ml-[1rem]"
+                  className=""
                 >
                   <AiOutlineUserAdd size={26} />
                   <span className="hidden nav-item-name">REGISTER</span>
