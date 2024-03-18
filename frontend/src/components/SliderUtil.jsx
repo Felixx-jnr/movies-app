@@ -5,12 +5,14 @@ import MovieCard from "../pages/Movies/MovieCard";
 
 const SliderUtil = ({ data }) => {
   const settings = {
-    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
     rtl: true,
+    arrows: false,
+    autoplay: true,
+    autoplaySpeed: 3000,
   };
 
   return (

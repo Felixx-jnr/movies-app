@@ -4,13 +4,13 @@ const MovieCard = ({ movie }) => {
   return (
     <div
       key={movie._id}
-      className="relative group m-[2rem]"
+      className="relative group w-[100%]"
     >
       <Link to={`/movies/${movie._id}`}>
         <img
           src={movie.image}
           alt={movie.name}
-          className="w-[20rem] h-[20rem] rounded m-0 p-0 transition duration-300 ease-in-out transform group-hover:opacity-50"
+          className="w-[95%] h-[20rem] object-cover rounded transition duration-300 ease-in-out transform group-hover:opacity-50"
         />
       </Link>
 
