@@ -74,11 +74,11 @@ const AllMovies = () => {
   };
 
   return (
-    <div className="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 -translate-y-[5rem]">
+    <div className=" sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 -translate-y-[5rem]">
       <>
         <section>
           <div
-            className="relative h-[50rem] w-screen mb-10 flex items-center justify-center bg-cover"
+            className="relative h-[50rem] max-w-[100%] px-0 mb-10 flex items-center justify-center bg-cover mx-auto"
             style={{ backgroundImage: `url(${banner})` }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-black opacity-60"></div>
