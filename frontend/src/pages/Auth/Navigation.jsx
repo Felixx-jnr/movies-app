@@ -14,7 +14,7 @@ import { toast } from "react-toastify";
 
 const Navigation = () => {
   const { userInfo } = useSelector((state) => state.auth);
-  const [dropdown, setDropdown] = useState(true);
+  const [dropdown, setDropdown] = useState(null);
   const dropdownRef = useRef(true);
 
   useEffect(() => {
