@@ -93,7 +93,7 @@ const AllMovies = () => {
             <section className="absolute -bottom-[5rem]">
               <input
                 type="text"
-                className="w-[100%] h-[5rem] border px-10 outline-none rounded"
+                className="w-[100%] py-3 border px-10 outline-none rounded"
                 placeholder="Search Movie"
                 value={moviesFilter.searchTerm}
                 onChange={handleSearchChange}
