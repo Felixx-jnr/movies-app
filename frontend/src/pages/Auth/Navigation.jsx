@@ -78,10 +78,7 @@ const Navigation = () => {
 
         {/* section 2 */}
 
-        <div
-          ref={dropdownRef}
-          className="duration-75"
-        >
+        <div ref={dropdownRef}>
           <button
             onClick={toggleDropdown}
             className="text-gray-800 focus:outline-none"
@@ -114,7 +111,7 @@ const Navigation = () => {
 
           {dropdown && userInfo && (
             <ul
-              className={`absolute left-16 mt-2 mr-14 w-[10rem] space-y-2 bg-red-200 text-gray-600 ${
+              className={`absolute transition-all duration-300 left-16 mt-2 mr-14 w-[10rem] space-y-2 bg-red-200 text-gray-600 ${
                 !userInfo.isAdmin ? "-top-20" : "-top-24"
               }`}
             >

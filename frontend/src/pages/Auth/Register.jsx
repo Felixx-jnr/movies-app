@@ -48,13 +48,15 @@ const Register = () => {
   };
 
   return (
-    <div className="relative max-w-[60%] w-[40rem] mx-auto">
+    <div className="relative max-w-[98%] mx-auto">
       <div className="">
-        <h1 className="text-4xl font-bold mx-0 my-7 text-red-500">REGISTER</h1>
+        <h1 className="text-4xl font-bold max-w-max mx-auto my-7 text-red-500">
+          REGISTER
+        </h1>
 
         <form
           onSubmit={submitHandler}
-          className="container mx-0"
+          className="container mx-auto w-[80%] md:w-[60%]"
         >
           <div className="mb-[2rem] mt-[1rem]">
             <label
@@ -73,7 +75,7 @@ const Register = () => {
             />
           </div>
 
-          <div className="my-[2rem]">
+          <div className="my-[2rem] ">
             <label
               htmlFor="email"
               className="block text-sm font-medium text-white"

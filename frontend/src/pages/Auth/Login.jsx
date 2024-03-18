@@ -43,10 +43,12 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <section className="relative max-w-[80%] w-[50rem] mx-auto">
-        <div className="mt-[5rem]">
-          <h1 className="text-4xl text-red-500 font-bold mb-4">LOG IN</h1>
+    <div className="max-w-[98%] mx-auto">
+      <section className="relative max-w-[80%] md:w-[70%] mx-auto">
+        <div className="mt-[5rem] max">
+          <h1 className=" text-center text-4xl text-red-500 font-bold mb-4">
+            LOG IN
+          </h1>
 
           <form onSubmit={submitHandler}>
             <div className="my-[2rem]">
