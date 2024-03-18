@@ -42,19 +42,24 @@ const MoviesContainerPage = () => {
 
       <section className="flex flex-col justify-center items-center mx-auto max-w-[95%]">
         <div className=" mb-8 max-w-[100%] mx-10">
-          <h1 className="mb-5">Choose For You</h1>
-          <SliderUtil data={randomMovies} />
-        </div>
-
-        <div className=" mb-8 max-w-[100%] mx-10">
-          <h1 className="mb-5">Top Movies</h1>
+          <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-4xl">
+            Top Movies
+          </h1>
           <SliderUtil data={topMovies} />
         </div>
 
-        <div className="mb-8 max-w-[100%] mx-10">
-          <h1 className="mb-5">Choose Movie</h1>
-          <SliderUtil data={filteredMovies} />
+        <div className=" mb-8 max-w-[100%] mx-10">
+          <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-4xl">
+            Choose For You
+          </h1>
+          <SliderUtil data={randomMovies} />
         </div>
+        {/* <div className="mb-8 max-w-[100%] mx-10">
+          <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-4xl">
+            Choose Movie
+          </h1>
+          <SliderUtil data={filteredMovies} />
+        </div> */}
       </section>
     </div>
   );

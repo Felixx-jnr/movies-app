@@ -74,7 +74,7 @@ const AllMovies = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 -translate-y-[5rem]">
+    <div className="sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 -translate-y-[5rem]">
       <>
         <section>
           <div
@@ -144,11 +144,12 @@ const AllMovies = () => {
               </section>
             </section>
           </div>{" "}
-          <section className="mt-[10rem] w-screen flex justify-center items-center flex-wrap">
+          <section className=" mt-[10rem] w-[100%] grid grid-cols-4 ">
             {filteredMovies?.map((movie) => (
               <MovieCard
                 key={movie._id}
                 movie={movie}
+                className=""
               />
             ))}
           </section>

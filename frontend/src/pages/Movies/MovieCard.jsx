@@ -13,7 +13,7 @@ const MovieCard = ({ movie }) => {
         <img
           src={movie.image}
           alt={movie.name}
-          className="w-[98%] h-[20rem] mx-[2%] object-cover rounded transition duration-300 ease-in-out transform group-hover:opacity-50"
+          className="w-[100%] h-[15rem] mx-[2%] object-cover rounded transition duration-300 ease-in-out transform group-hover:opacity-50"
         />
       </Link>
 
