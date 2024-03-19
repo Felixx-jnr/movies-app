@@ -27,7 +27,6 @@ const UpdateMovie = () => {
   useEffect(() => {
     if (initialMovieData) {
       setMovieData(initialMovieData);
-      console.log(initialMovieData);
     }
   }, [initialMovieData]);
 
@@ -60,10 +59,9 @@ const UpdateMovie = () => {
         !movieData.name ||
         !movieData.year ||
         !movieData.detail ||
-        !movieData.cast ||
-        !movieData.image
+        !movieData.cast
       ) {
-        toast.error("Fill in all the required fields");
+        toast.error("Please fill in all required fields");
         return;
       }
 
@@ -78,20 +76,21 @@ const UpdateMovie = () => {
         if (uploadImageResponse.data) {
           uploadedImagePath = uploadImageResponse.data.image;
         } else {
-          console.error("Failed to upload image", uploadImageErrorDetails);
+          console.error("Failed to upload image:", uploadImageErrorDetails);
           toast.error("Failed to upload image");
           return;
         }
-
-        await updateMovie({
-          id: id,
-          updatedMovie: {
-            ...movieData,
-            image: uploadedImagePath,
-          },
-        });
-        navigate("/movies");
       }
+
+      await updateMovie({
+        id: id,
+        updatedMovie: {
+          ...movieData,
+          image: uploadedImagePath,
+        },
+      });
+
+      navigate("/movies");
     } catch (error) {
       console.error("Failed to update movie:", error);
     }
@@ -125,7 +124,6 @@ const UpdateMovie = () => {
             />
           </label>
         </div>
-
         <div className="mb-4">
           <label className="block">
             Year:
@@ -138,7 +136,6 @@ const UpdateMovie = () => {
             />
           </label>
         </div>
-
         <div className="mb-4">
           <label className="block">
             Detail:
@@ -150,7 +147,6 @@ const UpdateMovie = () => {
             />
           </label>
         </div>
-
         <div className="mb-4">
           <label className="block">
             Cast (comma-separated):
@@ -195,7 +191,7 @@ const UpdateMovie = () => {
         <button
           type="button"
           onClick={handleUpdateMovie}
-          className="bg-green-500 text-white px-4 py-2 rounded"
+          className="bg-teal-500 text-white px-4 py-2 rounded"
           disabled={isUpdatingMovie || isUploadingImage}
         >
           {isUpdatingMovie || isUploadingImage ? "Updating..." : "Update Movie"}
@@ -213,5 +209,4 @@ const UpdateMovie = () => {
     </div>
   );
 };
-
 export default UpdateMovie;

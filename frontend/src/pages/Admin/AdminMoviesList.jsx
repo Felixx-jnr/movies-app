@@ -12,7 +12,7 @@ const AdminMoviesList = () => {
             ALL MOVIES ({movies?.length})
           </div>
 
-          <div className="grid grid-cols-3 gap-3 items-center w-[100%]">
+          <div className="grid grid-cols-3 gap-3 items-center mx-auto max-w-[98%]">
             {movies?.map((movie) => (
               <Link
                 key={movie._id}
