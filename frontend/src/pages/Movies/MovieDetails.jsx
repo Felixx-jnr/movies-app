@@ -38,35 +38,33 @@ const MovieDetails = () => {
   };
 
   return (
-    <div className="w-[80%]">
+    <div className="max-w-[90%] mx-auto">
       <div>
         <Link
           to="/"
-          className="text-white font-semibold hover:underline ml-[20rem]"
+          className="text-white font-semibold hover:underline ml-[]"
         >
           Go Back
         </Link>
       </div>
 
-      <div className="mt-[2rem]">
+      <div className="mt-2 max-w-[98%] mx-auto">
         <div className="flex justify-center items-center">
           <img
             src={movie?.image}
             alt={movie?.name}
-            className="w-[50%] h-[50rem] rounded object-contain"
+            className="w-[50rem] h-[30rem] rounded object-contain"
           />
         </div>
         {/* Container One */}
-        <div className="container  flex justify-between ml-[20rem] mt-[3rem]">
+        <div className="container px-3 flex mt-8">
           <section>
-            <h2 className="text-5xl my-4 font-extrabold">{movie?.name}</h2>
-            <p className="my-4 xl:w-[35rem] lg:w-[35rem] md:w-[30rem] text-[#B0B0B0]">
-              {movie?.detail}
-            </p>
+            <h2 className="text-5xl my-2 font-bold ">{movie?.name}</h2>
+            <p className="my-4 text-[#B0B0B0]">{movie?.detail}</p>
           </section>
 
-          <div className="mr-[5rem]">
-            <p className="text-2xl font-semibold">
+          <div className="ml-auto px-4">
+            <p className="text-2xl  font-semibold">
               Releasing Date: {movie?.year}
             </p>
 
@@ -80,7 +78,7 @@ const MovieDetails = () => {
           </div>
         </div>
 
-        <div className="container ml-[20rem]">
+        <div className=" mx-auto max-w-[98%]">
           <MovieTabs
             loadingMovieReview={loadingMovieReview}
             userInfo={userInfo}

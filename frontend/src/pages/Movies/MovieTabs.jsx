@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 const MovieTabs = ({ userInfo, submitHandler, comment, setComment, movie }) => {
   return (
     <div>
-      <section>
+      <section className=" max-w-[90%] w-[80%] my-10 mx-auto">
         {userInfo ? (
           <form onSubmit={submitHandler}>
-            <div className="my-2">
+            <div>
               <label
                 htmlFor="comment"
-                className="block text-xl mb-2"
+                className="block text-xl mb-3"
               >
-                Write Your Review
+                Write Your Review:
               </label>
 
               <textarea
@@ -20,13 +20,13 @@ const MovieTabs = ({ userInfo, submitHandler, comment, setComment, movie }) => {
                 required
                 value={comment}
                 onChange={(e) => setComment(e.target.value)}
-                className="p-2 border rounded-lg xl:w-[40rem] text-black"
+                className=" px-2 py-2 border w-[90%] rounded-lg text-black"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              className="bg-teal-600 text-white py-2 px-4 rounded-lg"
+              className="text-center bg-red-500 text-white mt-2 py-2 px-2 rounded-lg"
             >
               Submit
             </button>
