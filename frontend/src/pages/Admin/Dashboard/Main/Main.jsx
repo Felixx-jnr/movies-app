@@ -20,27 +20,27 @@ const Main = () => {
   );
 
   return (
-    <div>
-      <section className=" justify-around max-w-[98%] ">
-        <div className=" mt-10">
-          <div className="-translate-x-4 flex ml-64">
+    <div className="max-w-[90%]">
+      <section className="justify-around ">
+        <div className="">
+          <div className="flex -translate-x-4 ml-72 ">
             <SecondaryCard
               pill="Users"
               content={visitors?.length}
               info="20.2k more then usual"
-              gradient="from-teal-500 to-lime-400"
+              gradient="from-red-500 to-red-200"
             />
             <SecondaryCard
               pill="Comments"
               content={sumOfCommentsLength}
               info="742.8 more then usual"
-              gradient="from-[#CCC514] to-[#CDCB8E]"
+              gradient="from-red-500 to-red-300"
             />
             <SecondaryCard
               pill="Movies"
               content={allMovies?.length}
               info="372+ more then usual"
-              gradient="from-green-500 to-lime-400"
+              gradient="from-red-500 to-red-200"
             />
           </div>
           <div className=" flex text-4xl text-white mt-10 font-semibold max-w-[50%] mx-auto">

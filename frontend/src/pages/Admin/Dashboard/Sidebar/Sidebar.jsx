@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="mt-5">
-      <aside className=" inline-flex text-whiten w-40 flex-shrink-0">
-        <ul className=" py-4 ">
+    <div className="fixed mt-5 ml-20">
+      <aside className=" text-whiten w-40 flex-shrink-0">
+        <ul className=" py-4 inline">
           <li className="text-lg bg-gradient-to-b from-red-500 to-red-100 rounded-full">
             <Link
               to="/admin/movies/dashboard"
