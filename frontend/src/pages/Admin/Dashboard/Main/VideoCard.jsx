@@ -1,7 +1,7 @@
 const VideoCard = ({ image, title, date, comments }) => {
   return (
     <>
-      <div className="flex items-center w-[90%] mt-5">
+      <div className="flex items-center max-w-[50%] mt-5 mx-auto">
         <div>
           <img
             src={image}

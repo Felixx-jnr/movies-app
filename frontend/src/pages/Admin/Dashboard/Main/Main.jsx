@@ -21,9 +21,9 @@ const Main = () => {
 
   return (
     <div>
-      <section className="flex justify-around">
-        <div className="ml-[14rem] mt-10">
-          <div className="-translate-x-4 flex">
+      <section className=" justify-around max-w-[98%] ">
+        <div className=" mt-10">
+          <div className="-translate-x-4 flex ml-64">
             <SecondaryCard
               pill="Users"
               content={visitors?.length}
@@ -43,9 +43,9 @@ const Main = () => {
               gradient="from-green-500 to-lime-400"
             />
           </div>
-          <div className="flex justify-between w-[90%] text-white mt-10 font-bold">
+          <div className=" flex text-4xl text-white mt-10 font-semibold max-w-[50%] mx-auto">
             <p>Top Content</p>
-            <p>Comments</p>
+            <p className="ml-auto">Comments</p>
           </div>
 
           {topMovies?.map((movie) => (
