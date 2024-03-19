@@ -1,11 +1,15 @@
 import { useState } from "react";
-import { useCreateGenreMutation, useUpdateGenreMutation, useDeleteGenreMutation, useFetchGenresQuery } from "../../redux/api/genre";
+import {
+  useCreateGenreMutation,
+  useUpdateGenreMutation,
+  useDeleteGenreMutation,
+  useFetchGenresQuery,
+} from "../../redux/api/genre";
 import { toast } from "react-toastify";
 import GenreForm from "../../components/GenreForm";
 import Modal from "../../components/Modal";
 
 const GenreList = () => {
-
   const { data: genres, refetch } = useFetchGenresQuery();
   const [name, setName] = useState("");
   const [selectedGenre, setSelectedGenre] = useState(null);
@@ -91,36 +95,44 @@ const GenreList = () => {
     }
   };
 
-
-
-
-
-
-
   return (
-    <div className="ml-[10rem] flex flex-col md:flex-row">
+    <div className="ml-[10rem] flex flex-col md:flex-row w-[90%]">
       <div className="md:w-3/4 p-3">
-        <h1 className="h-12">Manage Genres</h1>
-        {<GenreForm value={name} setValue={setName} handleSubmit={handleCreateGenre} />}
+        <h1 className="h-12 p-2 text-red-500 text-4xl font-semibold">
+          Manage Genres
+        </h1>
+        {
+          <GenreForm
+            value={name}
+            setValue={setName}
+            handleSubmit={handleCreateGenre}
+          />
+        }
         <br />
 
         <div className="flex flex-wrap">
           {genres?.map((genre) => (
             <div key={genre._id}>
-              <button className="bg-white border border-teal-500 text-teal-500 py-2 px-4 rounded-lg m-3 hover:bg-teal-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-opacity-50" onClick={() => {
-                {
-                  setModalVisible(true);
-                  setSelectedGenre(genre);
-                  setUpdatingName(genre.name);
-                }
-              }}>
+              <button
+                className="bg-white border border-red-500 text-red-500 py-2 px-4 rounded-lg m-3 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                onClick={() => {
+                  {
+                    setModalVisible(true);
+                    setSelectedGenre(genre);
+                    setUpdatingName(genre.name);
+                  }
+                }}
+              >
                 {genre.name}
               </button>
             </div>
           ))}
         </div>
 
-        <Modal isOpen={modalVisible} onClose={() => setModalVisible(false)}>
+        <Modal
+          isOpen={modalVisible}
+          onClose={() => setModalVisible(false)}
+        >
           <GenreForm
             value={updatingName}
             setValue={(value) => setUpdatingName(value)}
@@ -129,13 +141,9 @@ const GenreList = () => {
             handleDelete={handleDeleteGenre}
           />
         </Modal>
-
       </div>
-
     </div>
   );
-
-
-}
+};
 
 export default GenreList;

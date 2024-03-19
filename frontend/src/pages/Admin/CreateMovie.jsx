@@ -122,9 +122,11 @@ const CreateMovie = () => {
   };
 
   return (
-    <div className="container flex justify-center items-center mt-4">
-      <form>
-        <p className="text-green-200 w-[50rem] text-2xl mb-4">Create Movie</p>
+    <div className="max-w-[98%] mx-auto mt-4">
+      <form className="max-w-[85%] w-[70%] mx-auto">
+        <p className="text-red-500 w-[50rem] text-4xl font-semibold mb-4">
+          Create Movie
+        </p>
         <div className="mb-4">
           <label className="block">
             Name:
@@ -133,7 +135,7 @@ const CreateMovie = () => {
               name="name"
               value={movieData.name}
               onChange={handleChange}
-              className="border px-2 py-1 w-full"
+              className="border px-2 py-2 w-full rounded"
             />
           </label>
         </div>
@@ -145,7 +147,7 @@ const CreateMovie = () => {
               name="year"
               value={movieData.year}
               onChange={handleChange}
-              className="border px-2 py-1 w-full"
+              className="border px-2 py-2 w-full rounded"
             />
           </label>
         </div>
@@ -156,7 +158,7 @@ const CreateMovie = () => {
               name="detail"
               value={movieData.detail}
               onChange={handleChange}
-              className="border px-2 py-1 w-full"
+              className="border px-2 py-2 w-full rounded"
             ></textarea>
           </label>
         </div>
@@ -170,7 +172,7 @@ const CreateMovie = () => {
               onChange={(e) =>
                 setMovieData({ ...movieData, cast: e.target.value.split(", ") })
               }
-              className="border px-2 py-1 w-full"
+              className="border px-2 py-2 w-full rounded"
             />
           </label>
         </div>
@@ -181,7 +183,7 @@ const CreateMovie = () => {
               name="genre"
               value={movieData.genre}
               onChange={handleChange}
-              className="border px-2 py-1 w-full"
+              className="border px-2 py-2 w-full rounded"
             >
               {isLoadingGenres ? (
                 <option>Loading genres...</option>
@@ -228,7 +230,7 @@ const CreateMovie = () => {
         <button
           type="button"
           onClick={handleCreateMovie}
-          className="bg-teal-500 text-white px-4 py-2 rounded"
+          className="bg-red-500 text-white px-4 py-2  mb-5 rounded"
           disabled={isCreatingMovie || isUploadingImage}
         >
           {isCreatingMovie || isUploadingImage ? "Creating..." : "Create Movie"}
