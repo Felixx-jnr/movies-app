@@ -91,7 +91,7 @@ const GenreList = () => {
       }
     } catch (error) {
       console.error(error);
-      toast.error("Genre deletion failed. Tray again.");
+      toast.error("Genre deletion failed. Try again.");
     }
   };
 
@@ -106,6 +106,7 @@ const GenreList = () => {
             value={name}
             setValue={setName}
             handleSubmit={handleCreateGenre}
+            className="mx-auto"
           />
         }
         <br />

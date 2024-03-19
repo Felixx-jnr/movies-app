@@ -13,7 +13,7 @@ const GenreForm = ({
       >
         <input
           type="text"
-          className="py-3 px-4 border rounded-lg w-[90%]"
+          className="py-3 px-4 border rounded-lg w-[90%] mx-auto"
           placeholder="Write genre name"
           value={value}
           onChange={(e) => setValue(e.target.value)}

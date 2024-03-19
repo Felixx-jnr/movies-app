@@ -195,7 +195,7 @@ const UpdateMovie = () => {
         <button
           type="button"
           onClick={handleUpdateMovie}
-          className="bg-teal-500 text-white px-4 py-2 rounded"
+          className="bg-green-500 text-white px-4 py-2 rounded"
           disabled={isUpdatingMovie || isUploadingImage}
         >
           {isUpdatingMovie || isUploadingImage ? "Updating..." : "Update Movie"}
