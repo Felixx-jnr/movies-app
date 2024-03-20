@@ -1,20 +1,13 @@
-const SecondaryCard = ({ pill, content, info, gradient }) => {
+const SecondaryCard = ({ pill, content, gradient }) => {
   return (
     <div
-      className={`w-[15rem] h-[12rem] relative mt-10 bg-gradient-to-b ${gradient} rounded-lg shadow-lg ml-5 `}
+      className={`w-[15rem] h-[8rem] sm:text-1xl relative mr-5 mt-5 bg-gradient-to-b ${gradient} rounded-lg shadow-lg ml-5 `}
     >
-      <div
-        className={`absolute -top-4 left-[5rem] border bg-gradient-to-b ${gradient} rounded-full py-2 px-5 text-sm text-gray-800 font-semibold`}
-      >
-        {pill}
-      </div>
-
-      <div className="flex items-center justify-center h-full">
-        <h2 className="text-5xl font-bold text-white">{content}</h2>
-      </div>
-
-      <div className="absolute bottom-4 left-[25%] text-sm text-white">
-        {info}
+      <div className=" flex items-center justify-center h-full">
+        <h2 className="text-2xl sm:text-2xl font-bold text-white mr-2">
+          {content}
+        </h2>
+        <div className=" font-bold ">{pill}</div>
       </div>
     </div>
   );

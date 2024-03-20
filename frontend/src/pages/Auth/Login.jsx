@@ -44,14 +44,14 @@ const Login = () => {
 
   return (
     <div className="max-w-[98%] mx-auto">
-      <section className="relative max-w-[80%] md:w-[70%] mx-auto">
+      <section className="relative max-w-[80%] md:w-[60%] mx-auto">
         <div className="mt-[5rem] max">
           <h1 className=" text-center text-4xl text-red-500 font-bold mb-4">
             LOG IN
           </h1>
 
           <form onSubmit={submitHandler}>
-            <div className="my-[2rem]">
+            <div className="my-[2rem ]">
               <label
                 htmlFor="email"
                 className="block text-sm font-medium text-white"

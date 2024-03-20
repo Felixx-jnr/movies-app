@@ -1,6 +1,5 @@
 import SecondaryCard from "./SecondaryCard";
 import VideoCard from "./VideoCard";
-import RealTimeCard from "./RealTimeCard";
 
 import {
   useGetTopMoviesQuery,
@@ -20,32 +19,35 @@ const Main = () => {
   );
 
   return (
-    <div className="max-w-[90%]">
-      <section className="justify-around ">
+    <div className=" mx-auto max-w-[98%] ml-10">
+      <section className="mx-auto ">
         <div className="">
-          <div className="flex -translate-x-4 ml-72 ">
+          <div className="flex max-sm:block ml-40">
             <SecondaryCard
               pill="Users"
               content={visitors?.length}
-              info="20.2k more then usual"
               gradient="from-red-500 to-red-200"
             />
             <SecondaryCard
+              className=""
               pill="Comments"
               content={sumOfCommentsLength}
-              info="742.8 more then usual"
               gradient="from-red-500 to-red-300"
             />
             <SecondaryCard
               pill="Movies"
               content={allMovies?.length}
-              info="372+ more then usual"
               gradient="from-red-500 to-red-200"
             />
           </div>
-          <div className=" flex text-4xl text-white mt-10 font-semibold max-w-[50%] mx-auto">
-            <p>Top Content</p>
-            <p className="ml-auto">Comments</p>
+
+          <div className=" flex text-white mt-10 font-semibold max-w-[70%] mr-3 sm:max-w-[60%] ml-48">
+            <p className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl">
+              Top Content
+            </p>
+            <p className="ml-auto text-2xl sm:text-2xl md:text-2xl lg:text-2xl">
+              Comments
+            </p>
           </div>
 
           {topMovies?.map((movie) => (
@@ -57,10 +59,6 @@ const Main = () => {
               comments={movie.numReviews}
             />
           ))}
-        </div>
-
-        <div>
-          <RealTimeCard />
         </div>
       </section>
     </div>
