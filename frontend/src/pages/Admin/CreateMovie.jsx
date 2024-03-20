@@ -123,7 +123,7 @@ const CreateMovie = () => {
 
   return (
     <div className="max-w-[98%] mx-auto mt-4">
-      <form className="max-w-[85%] w-[70%] mx-auto">
+      <form className="max-w-[95%] sm:max-w-[85%] md:max-w-[60%] mx-auto">
         <p className="text-red-500 w-[50rem] text-4xl font-semibold mb-4">
           Create Movie
         </p>

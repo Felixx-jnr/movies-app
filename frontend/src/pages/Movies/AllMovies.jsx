@@ -78,29 +78,31 @@ const AllMovies = () => {
       <>
         <section>
           <div
-            className="relative h-[50rem] max-w-[100%] px-0 mb-10 flex items-center justify-center bg-cover mx-auto"
+            className="relative h-[30rem] max-w-[100%] px-0 mb-10 flex items-center justify-center bg-cover mx-auto"
             style={{ backgroundImage: `url(${banner})` }}
           >
             <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-black opacity-60"></div>
 
             <div className="relative z-10 text-center text-white mt-[10rem]">
-              <h1 className="text-8xl font-bold mb-4">The Movies Hub</h1>
+              <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">
+                The Movies Hub
+              </h1>
               <p className="text-2xl">
                 Cinematic Odyssey: Unveiling the Magic of Movies
               </p>
             </div>
 
-            <section className="absolute -bottom-[5rem]">
+            <section className=" w-[70%] text-center inline-block absolute mx-10 -bottom-[5rem]">
               <input
                 type="text"
-                className="w-[100%] py-3 border px-10 outline-none rounded"
+                className=" w-[70%] sm:w-[100%] py-2 border px-1 outline-none rounded"
                 placeholder="Search Movie"
                 value={moviesFilter.searchTerm}
                 onChange={handleSearchChange}
               />
-              <section className="sorts-container mt-[2rem] ml-[10rem]  w-[30rem]">
+              <section className="mt-3 ">
                 <select
-                  className="border p-2 rounded text-black"
+                  className="border w-[10%] sm:w-[15%] p-2 rounded text-black"
                   value={moviesFilter.selectedGenre}
                   onChange={(e) => handleGenreClick(e.target.value)}
                 >
@@ -116,7 +118,7 @@ const AllMovies = () => {
                 </select>
 
                 <select
-                  className="border p-2 rounded ml-4 text-black"
+                  className="border p-2 rounded ml-4 text-black w-[15%]"
                   value={moviesFilter.selectedYear}
                   onChange={(e) => handleYearChange(e.target.value)}
                 >
@@ -132,7 +134,7 @@ const AllMovies = () => {
                 </select>
 
                 <select
-                  className="border p-2 rounded ml-4 text-black"
+                  className="border w-[15%]  p-2 rounded ml-4 text-black"
                   value={moviesFilter.selectedSort}
                   onChange={(e) => handleSortChange(e.target.value)}
                 >
@@ -144,7 +146,7 @@ const AllMovies = () => {
               </section>
             </section>
           </div>{" "}
-          <section className=" mt-[10rem] w-[95%] grid grid-cols-4 mx-auto">
+          <section className=" mt-[10rem] w-[95%] grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  mx-auto">
             {filteredMovies?.map((movie) => (
               <MovieCard
                 key={movie._id}

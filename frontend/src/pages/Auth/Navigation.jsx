@@ -52,14 +52,14 @@ const Navigation = () => {
   };
 
   return (
-    <div className=" fixed left-0 top-[50%] bg-[#d64040] border rounded z-10 ml-2 p-2">
-      <section className="">
+    <div className=" fixed left-0 top-[40%]   bg-[#d64040] border rounded z-10 ml-2 p-1">
+      <section className="justify-center align-middle items-center">
         {/* Section 1 */}
         <div className="">
           <Link to="/">
             <AiOutlineHome
               className="mb-4"
-              size={26}
+              size={20}
             />
             <span className="hidden nav-item-name mt-[3rem]">Home</span>
           </Link>
@@ -70,7 +70,7 @@ const Navigation = () => {
           >
             <MdOutlineLocalMovies
               className="mb-4"
-              size={26}
+              size={20}
             />
             <span className="hidden nav-item-name mt-[3rem]">SHOP</span>
           </Link>
@@ -83,11 +83,7 @@ const Navigation = () => {
             onClick={toggleDropdown}
             className="text-gray-800 focus:outline-none"
           >
-            {userInfo ? (
-              <span className="text-white capitalize ">Menu</span>
-            ) : (
-              <></>
-            )}
+            {userInfo ? <span className="text-white text-1xl "></span> : <></>}
 
             {userInfo && (
               <svg
@@ -157,7 +153,7 @@ const Navigation = () => {
                 >
                   <AiOutlineLogin
                     className="mb-4"
-                    size={26}
+                    size={20}
                   />
                   <span className="hidden nav-item-name">LOGIN</span>
                 </Link>
@@ -168,7 +164,7 @@ const Navigation = () => {
                   to="/register"
                   className=""
                 >
-                  <AiOutlineUserAdd size={26} />
+                  <AiOutlineUserAdd size={20} />
                   <span className="hidden nav-item-name">REGISTER</span>
                 </Link>
               </li>
