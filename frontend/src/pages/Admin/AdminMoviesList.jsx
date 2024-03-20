@@ -5,14 +5,14 @@ const AdminMoviesList = () => {
   const { data: movies } = useGetAllMoviesQuery();
 
   return (
-    <div className="mx-auto w-[90%] max-w-[90%] py-0">
+    <div className="mx-auto w-[98%] max-w-[98%] py-0">
       <div>
         <div className="p-0">
           <div className="ml-[2rem] text-3xl font-bold h-12 text-red-500">
             ALL MOVIES ({movies?.length})
           </div>
 
-          <div className="grid grid-cols-3 gap-3 items-center mx-auto max-w-[98%]">
+          <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-3 items-center mx-auto max-sm:max-w-[80%] lg:max-w-[98%]">
             {movies?.map((movie) => (
               <Link
                 key={movie._id}
