@@ -146,7 +146,7 @@ const AllMovies = () => {
               </section>
             </section>
           </div>{" "}
-          <section className="max-w-[60%] sm:max-w-[100%] mt-[6rem] w-[95%] grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2  mx-auto">
+          <section className="max-w-[60%] sm:max-w-[100%] mt-[6rem] w-[95%] grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mx-auto">
             {filteredMovies?.map((movie) => (
               <MovieCard
                 key={movie._id}

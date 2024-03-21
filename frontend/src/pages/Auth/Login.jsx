@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
+import banner from "../../assets/banner.jpg";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 import { useLoginMutation } from "../../redux/api/users";
 import { toast } from "react-toastify";
@@ -44,6 +45,14 @@ const Login = () => {
 
   return (
     <div className="max-w-[98%] mx-auto">
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${banner})`,
+          filter: "brightness(20%) blur(5px)",
+        }}
+      />
+
       <section className="relative max-w-[80%] md:w-[60%] mx-auto">
         <div className="mt-[5rem] max">
           <h1 className=" text-center text-4xl text-red-500 font-bold mb-4">
