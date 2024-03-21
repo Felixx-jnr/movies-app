@@ -96,9 +96,9 @@ const GenreList = () => {
   };
 
   return (
-    <div className="ml-[10rem] flex flex-col md:flex-row w-[90%]">
-      <div className="md:w-3/4 p-3">
-        <h1 className="h-12 p-2 text-red-500 text-4xl font-semibold">
+    <div className=" md:flex-row max-w-[98%] mx-auto">
+      <div className="mx-auto w-[80%] p-3">
+        <h1 className=" text-left h-12 p-2 text-red-500 text-4xl mb-12 font-semibold">
           Manage Genres
         </h1>
         {
