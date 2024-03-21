@@ -49,8 +49,15 @@ const Register = () => {
   };
 
   return (
-    <div className="relative max-w-[98%] mx-auto">
-      <div>
+    <div className="relative max-w-[100%] mx-auto">
+      <div
+        className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${banner})`,
+          filter: "brightness(20%) blur(5px)",
+        }}
+      />
+      <div className="relative ">
         <h1 className="text-4xl font-bold max-w-max mx-auto my-7 text-red-500">
           REGISTER
         </h1>
@@ -138,7 +145,7 @@ const Register = () => {
           {isLoading && <Loader />}
         </form>
 
-        <div className="my-4">
+        <div className="my-2">
           <p className="text-white">
             Already have an account?{" "}
             <Link
