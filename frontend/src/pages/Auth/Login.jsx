@@ -35,6 +35,8 @@ const Login = () => {
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
       toast.success(`Welcome`);
+      setPassword("");
+      setEmail("");
     } catch (err) {
       toast.error(err?.data?.message || err.error);
     }

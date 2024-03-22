@@ -107,7 +107,7 @@ const Navigation = () => {
 
           {dropdown && userInfo && (
             <ul
-              className={`absolute transition-all duration-300 left-16 mt-2 mr-14 w-[10rem] space-y-2 bg-red-200 text-gray-600 ${
+              className={`absolute transition-all duration-300 left-10 mt-20 mr-14 w-[400%] space-y-2 bg-red-200 text-gray-600 ${
                 !userInfo.isAdmin ? "-top-20" : "-top-24"
               }`}
             >
@@ -116,7 +116,7 @@ const Navigation = () => {
                   <li>
                     <Link
                       to="/admin/movies/dashboard"
-                      className="block px-4 py-2 hover:bg-gray-100"
+                      className="block px-4 py-1 hover:bg-gray-100"
                     >
                       Dashboard
                     </Link>
@@ -127,7 +127,7 @@ const Navigation = () => {
               <li>
                 <Link
                   to="/profile"
-                  className="block px-4 py-2 hover:bg-gray-100"
+                  className="block px-4 py-1 hover:bg-gray-100"
                 >
                   Profile
                 </Link>
@@ -136,7 +136,7 @@ const Navigation = () => {
               <li>
                 <button
                   onClick={logoutHandler}
-                  className="block w-full px-4 py-2 text-left hover:bg-gray-100"
+                  className="block w-full px-4 py-1 text-left hover:bg-gray-100"
                 >
                   Logout
                 </button>

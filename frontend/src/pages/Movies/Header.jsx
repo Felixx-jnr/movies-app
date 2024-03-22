@@ -13,7 +13,7 @@ const Header = () => {
         </Link>
         <Link
           to="/movies"
-          className="transition duration-300 p-1 mx-3 hover:underline rounded font-semibold text-1xl"
+          className="transition duration-300 p-1 mx-3 rounded font-semibold text-1xl "
         >
           Browse Movies
         </Link>

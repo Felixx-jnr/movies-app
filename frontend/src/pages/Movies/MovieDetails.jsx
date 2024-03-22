@@ -69,8 +69,8 @@ const MovieDetails = () => {
             </p>
 
             <div>
-              {movie?.cast.map((c) => (
-                <ul key={c._id}>
+              {movie?.cast.map((c, index) => (
+                <ul key={index}>
                   <li className="mt-[1rem]">{c}</li>
                 </ul>
               ))}

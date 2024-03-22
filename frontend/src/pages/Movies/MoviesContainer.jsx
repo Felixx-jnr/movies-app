@@ -25,22 +25,39 @@ const MoviesContainerPage = () => {
   );
 
   return (
-    <div className="flex flex-col lg:flex-row lg:justify-between items-center">
-      {/* <nav className=" ml-[4rem] flex flex-row xl:flex-col lg:flex-col md:flex-row sm:flex-row">
-        {genres?.map((g) => (
-          <button
-            key={g._id}
-            className={`transition duration-300 ease-in-out hover:bg-gray-200 block p-2 rounded mb-[1rem] text-lg ${
-              selectedGenre === g._id ? "bg-gray-200" : ""
-            }`}
-            onClick={() => handleGenreClick(g._id)}
-          >
-            {g.name}
-          </button>
-        ))}
-      </nav>  */}
-
+    <div className="">
       <section className="flex flex-col justify-center items-center mx-auto max-w-[95%]">
+        <div className="mb-3 max-w-[100%] mx-10">
+          <h1 className="mb-2 mt-10 text-center font-bold text-red-500 text-4xl">
+            Choose Movie
+          </h1>
+
+          <nav className=" max-w-[80%] mx-auto flex flex-wrap justify-center mt-5">
+            <button
+              className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-[1rem] text-lg 
+              }`}
+              onClick={() => setSelectedGenre(null)}
+            >
+              {" "}
+              All Genres
+            </button>
+
+            {genres?.map((g) => (
+              <button
+                key={g._id}
+                className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-[1rem] text-lg ${
+                  selectedGenre === g._id ? "bg-red-700" : ""
+                }`}
+                onClick={() => handleGenreClick(g._id)}
+              >
+                {g.name}
+              </button>
+            ))}
+          </nav>
+
+          <SliderUtil data={filteredMovies} />
+        </div>
+
         <div className=" mb-8 max-w-[100%] mx-10">
           <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-4xl">
             Top Movies
@@ -54,12 +71,6 @@ const MoviesContainerPage = () => {
           </h1>
           <SliderUtil data={randomMovies} />
         </div>
-        {/* <div className="mb-8 max-w-[100%] mx-10">
-          <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-4xl">
-            Choose Movie
-          </h1>
-          <SliderUtil data={filteredMovies} />
-        </div> */}
       </section>
     </div>
   );

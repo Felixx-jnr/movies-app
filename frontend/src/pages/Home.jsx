@@ -6,7 +6,7 @@ const Home = () => {
     <>
       <Header />
 
-      <section className="mt-10">
+      <section>
         <MoviesContainerPage />
       </section>
     </>

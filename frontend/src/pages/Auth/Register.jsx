@@ -46,6 +46,9 @@ const Register = () => {
         toast.error(error.data);
       }
     }
+
+    setEmail("");
+    setPassword("");
   };
 
   return (
