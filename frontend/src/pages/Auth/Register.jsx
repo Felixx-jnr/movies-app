@@ -49,7 +49,7 @@ const Register = () => {
   };
 
   return (
-    <div className="relative max-w-[100%] mx-auto">
+    <div className="relative max-w-[100%] mx-auto ">
       <div
         className="absolute top-0 left-0 w-full h-full bg-cover bg-center"
         style={{
@@ -57,8 +57,8 @@ const Register = () => {
           filter: "brightness(20%) blur(5px)",
         }}
       />
-      <div className="relative ">
-        <h1 className="text-4xl font-bold max-w-max mx-auto my-7 text-red-500">
+      <div className="relative">
+        <h1 className="text-4xl font-bold max-w-max mx-auto pt-7 text-red-500">
           REGISTER
         </h1>
 
@@ -137,7 +137,7 @@ const Register = () => {
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer my-[1rem]"
+            className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer my-2"
           >
             {isLoading ? "Registering..." : "Register"}
           </button>
@@ -145,7 +145,7 @@ const Register = () => {
           {isLoading && <Loader />}
         </form>
 
-        <div className="my-2">
+        <div className="py-8">
           <p className="text-white">
             Already have an account?{" "}
             <Link

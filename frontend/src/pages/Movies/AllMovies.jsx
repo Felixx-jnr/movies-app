@@ -78,6 +78,13 @@ const AllMovies = () => {
       <>
         <section>
           <div
+            className="absolute top-0 left-0 w-full h-full bg-cover bg-center bg-repeat "
+            style={{
+              backgroundImage: `url(${banner})`,
+              filter: "brightness(20%) blur(15px)",
+            }}
+          />
+          <div
             className="relative h-[30rem] max-w-[100%] px-0 mb-10 flex items-center justify-center bg-cover mx-auto"
             style={{ backgroundImage: `url(${banner})` }}
           >

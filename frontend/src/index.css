@@ -5,6 +5,9 @@
 body {
   background: #0f0f10;
   color: #fff;
+  max-width: 1450px;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 input,
@@ -14,10 +17,4 @@ textarea {
 
 select option {
   color: #000;
-}
-
-body {
-  max-width: 1450px;
-  margin: 0 auto;
-  overflow-x: hidden;
 }
