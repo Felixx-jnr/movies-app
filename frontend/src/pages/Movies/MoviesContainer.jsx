@@ -58,14 +58,14 @@ const MoviesContainerPage = () => {
           <SliderUtil data={filteredMovies} />
         </div>
 
-        <div className=" mb-8 max-w-[100%] mx-10">
+        <div className=" mb-2 max-w-[100%] mx-10">
           <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-4xl">
             Top Movies
           </h1>
           <SliderUtil data={topMovies} />
         </div>
 
-        <div className=" mb-8 max-w-[100%] mx-10">
+        <div className=" mb-2 max-w-[100%] mx-10">
           <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-4xl">
             Choose For You
           </h1>
