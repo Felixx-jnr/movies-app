@@ -1,11 +1,8 @@
-import SliderUtil from "../../components/SliderUtil";
-import Slideshow from "../../components/Slideshow";
+import ImageSlider from "../../components/ImageSlider";
 import { useGetNewMoviesQuery } from "../../redux/api/movies";
 import { Link } from "react-router-dom";
 
 const Header = () => {
-  const { data } = useGetNewMoviesQuery();
-
   return (
     <div className="">
       <nav className=" flex mx-0 text-right">
@@ -23,13 +20,8 @@ const Header = () => {
         </Link>
       </nav>
 
-      {/* <div>
-        <h1>Video Slideshow</h1>
-        <Slideshow />
-      </div> */}
-
-      <div className=" w-[1450px] ">
-        <Slideshow />
+      <div className=" ">
+        <ImageSlider />
       </div>
     </div>
   );
