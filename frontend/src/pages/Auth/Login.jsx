@@ -54,7 +54,7 @@ const Login = () => {
       />
 
       <section className="relative max-w-[80%] md:w-[60%] mx-auto">
-        <div className="mt-[5rem] max">
+        <div className="mt-[8rem] max">
           <h1 className=" text-center text-4xl text-red-500 font-bold mb-4">
             LOG IN
           </h1>

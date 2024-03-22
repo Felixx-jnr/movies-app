@@ -58,7 +58,7 @@ const Register = () => {
         }}
       />
       <div className="relative">
-        <h1 className="text-4xl font-bold max-w-max mx-auto pt-7 text-red-500">
+        <h1 className="text-4xl font-bold max-w-max mx-auto pt-8 text-red-500">
           REGISTER
         </h1>
 
@@ -66,7 +66,7 @@ const Register = () => {
           onSubmit={submitHandler}
           className="container mx-auto w-[80%] md:w-[60%]"
         >
-          <div className="mb-[2rem] mt-[1rem]">
+          <div className="">
             <label
               htmlFor="name"
               className="block text-sm font-medium text-white"
@@ -137,7 +137,7 @@ const Register = () => {
           <button
             disabled={isLoading}
             type="submit"
-            className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer my-2"
+            className="bg-red-500 text-white px-4 py-2 rounded cursor-pointer my-1"
           >
             {isLoading ? "Registering..." : "Register"}
           </button>
@@ -145,7 +145,7 @@ const Register = () => {
           {isLoading && <Loader />}
         </form>
 
-        <div className="py-8">
+        <div className="py-8 ml-[20%] max-md:ml-[10%]">
           <p className="text-white">
             Already have an account?{" "}
             <Link

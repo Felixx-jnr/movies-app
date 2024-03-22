@@ -33,7 +33,14 @@ const MovieTabs = ({ userInfo, submitHandler, comment, setComment, movie }) => {
           </form>
         ) : (
           <p>
-            Please <Link to="/login">Sign In</Link> to write a review
+            You have to{" "}
+            <Link
+              className="text-red-500"
+              to="/login"
+            >
+              Log in
+            </Link>{" "}
+            to write a review
           </p>
         )}
       </section>
