@@ -1,26 +1,25 @@
 import ImageSlider from "../../components/ImageSlider";
-import { useGetNewMoviesQuery } from "../../redux/api/movies";
 import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="">
-      <nav className=" flex mx-0 text-right">
+    <div>
+      <nav className=" py-2 text-right fixed block w-full top-0 right-0 z-20 bg-red-500">
         <Link
           to="/"
-          className=" transition duration-300 ease-in-out p-3 hover:bg-red-400 block rounded text-2xl"
+          className="transition duration-300 ease-in-out p-1 mx-4 bg-white text-red-500 font-semibold rounded text-1xl"
         >
           Home
         </Link>
         <Link
           to="/movies"
-          className="transition duration-300 ease-in-out p-3 hover:bg-red-400  block rounded text-2xl"
+          className="transition duration-300 p-1 mx-3 hover:underline rounded font-semibold text-1xl"
         >
           Browse Movies
         </Link>
       </nav>
 
-      <div className=" ">
+      <div className="">
         <ImageSlider />
       </div>
     </div>

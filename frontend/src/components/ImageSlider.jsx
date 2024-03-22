@@ -19,9 +19,9 @@ const ImageSlider = () => {
   }, [images.length]);
 
   return (
-    <div className="h-full w-full">
+    <div className="h-full w-full transition duration-300 ease-in-out">
       <img
-        className="w-[100%] h-[500px] object-cover"
+        className="w-[100%] h-[500px] object-cover transition duration-300 ease-in-out"
         src={images[currentIndex]}
         alt={`Slide ${currentIndex + 1}`}
       />
