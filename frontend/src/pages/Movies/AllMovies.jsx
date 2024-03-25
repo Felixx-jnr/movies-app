@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useGetAllMoviesQuery } from "../../redux/api/movies";
 import { useFetchGenresQuery } from "../../redux/api/genre";
 import {
@@ -24,6 +25,7 @@ const AllMovies = () => {
   const { data: topMovies } = useGetTopMoviesQuery();
   const { data: randomMovies } = useGetRandomMoviesQuery();
 
+  const [selectedOption, setSelectedOption] = useState("");
   const { moviesFilter, filteredMovies } = useSelector((state) => state.movies);
 
   const movieYears = data?.map((movie) => movie.year);
@@ -46,17 +48,37 @@ const AllMovies = () => {
   };
 
   const handleGenreClick = (genreId) => {
-    const filterByGenre = data.filter((movie) => movie.genre === genreId);
-    dispatch(setFilteredMovies(filterByGenre));
+    if (genreId === "all") {
+      dispatch(setFilteredMovies(data));
+    } else {
+      const filterByGenre = data.filter((movie) => movie.genre === genreId);
+      dispatch(setFilteredMovies(filterByGenre));
+    }
   };
 
   const handleYearChange = (year) => {
-    const filterByYear = data.filter((movie) => movie.year === +year);
-    dispatch(setFilteredMovies(filterByYear));
+    if (year === "all") {
+      // If "All Movies" option is selected, reset the selected year filter
+      dispatch(setFilteredMovies(data));
+      dispatch(setMoviesFilter({ selectedYear: year }));
+
+      // Alternatively, you can dispatch an action to fetch all movies from your data source
+    } else {
+      // Otherwise, filter movies based on the selected year
+      const filterByYear = data.filter(
+        (movie) => movie.year === parseInt(year, 10)
+      );
+      dispatch(setFilteredMovies(filterByYear));
+      // Update the selectedYear filter
+      dispatch(setMoviesFilter({ selectedYear: year }));
+    }
   };
 
   const handleSortChange = (sortOption) => {
     switch (sortOption) {
+      case "all":
+        dispatch(setFilteredMovies(data));
+        break;
       case "new":
         dispatch(setFilteredMovies(newMovies));
         break;
@@ -71,6 +93,7 @@ const AllMovies = () => {
         dispatch(setFilteredMovies([]));
         break;
     }
+    setSelectedOption(sortOption);
   };
 
   return (
@@ -110,10 +133,10 @@ const AllMovies = () => {
               <section className="mt-3 ">
                 <select
                   className="border w-[10%] sm:w-[15%] p-2 rounded text-black"
-                  value={moviesFilter.selectedGenre}
                   onChange={(e) => handleGenreClick(e.target.value)}
                 >
-                  <option value="">Genres</option>
+                  <option value="all">All Genres</option>
+
                   {genres?.map((genre) => (
                     <option
                       key={genre._id}
@@ -129,7 +152,8 @@ const AllMovies = () => {
                   value={moviesFilter.selectedYear}
                   onChange={(e) => handleYearChange(e.target.value)}
                 >
-                  <option value="">Year</option>
+                  <option value="all">All Year</option>
+
                   {uniqueYears.map((year) => (
                     <option
                       key={year}
@@ -142,10 +166,10 @@ const AllMovies = () => {
 
                 <select
                   className="border w-[15%]  p-2 rounded ml-4 text-black"
-                  value={moviesFilter.selectedSort}
+                  value={selectedOption}
                   onChange={(e) => handleSortChange(e.target.value)}
                 >
-                  <option value="">Sort By</option>
+                  <option value="all">All</option>
                   <option value="new">New Movies</option>
                   <option value="top">Top Movies</option>
                   <option value="random">Random Movies</option>

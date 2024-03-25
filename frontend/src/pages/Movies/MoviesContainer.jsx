@@ -32,7 +32,7 @@ const MoviesContainerPage = () => {
             Choose Movie
           </h1>
 
-          <nav className=" max-w-[80%] mx-auto flex flex-wrap justify-center mt-5">
+          <nav className=" max-w-[100%] mx-auto flex flex-wrap justify-center mt-5">
             <button
               className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-[1rem] text-lg 
               }`}
