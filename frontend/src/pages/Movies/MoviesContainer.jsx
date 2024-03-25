@@ -34,7 +34,7 @@ const MoviesContainerPage = () => {
 
           <nav className=" max-w-[100%] mx-auto flex flex-wrap justify-center mt-5">
             <button
-              className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-[1rem] text-lg 
+              className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-1 text-md 
               }`}
               onClick={() => setSelectedGenre(null)}
             >
@@ -45,7 +45,7 @@ const MoviesContainerPage = () => {
             {genres?.map((g) => (
               <button
                 key={g._id}
-                className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-[1rem] text-lg ${
+                className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-1 text-md ${
                   selectedGenre === g._id ? "bg-red-700" : ""
                 }`}
                 onClick={() => handleGenreClick(g._id)}
@@ -55,7 +55,10 @@ const MoviesContainerPage = () => {
             ))}
           </nav>
 
-          <SliderUtil data={filteredMovies} />
+          <SliderUtil
+            data={filteredMovies}
+            className="w-[100%]"
+          />
         </div>
 
         <div className=" mb-2 max-w-[100%] mx-10">

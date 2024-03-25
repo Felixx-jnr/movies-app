@@ -7,7 +7,7 @@ const Header = () => {
       <nav className=" py-2 text-right fixed block w-full top-0 right-0 z-20 bg-red-500">
         <Link
           to="/"
-          className="transition duration-300 ease-in-out p-1 mx-4 bg-white text-red-500 font-semibold rounded text-1xl"
+          className="transition duration-300 ease-in-out p-1 bg-white text-red-500 font-semibold rounded text-1xl"
         >
           Home
         </Link>
@@ -15,7 +15,7 @@ const Header = () => {
           to="/movies"
           className="transition duration-300 p-1 mx-3 rounded font-semibold text-1xl "
         >
-          Browse Movies
+          Movies
         </Link>
       </nav>
 
