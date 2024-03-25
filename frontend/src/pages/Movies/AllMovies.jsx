@@ -26,6 +26,7 @@ const AllMovies = () => {
   const { data: randomMovies } = useGetRandomMoviesQuery();
 
   const [selectedOption, setSelectedOption] = useState("");
+  const [selectedGenre, setSelectedGenre] = useState("all");
   const { moviesFilter, filteredMovies } = useSelector((state) => state.movies);
 
   const movieYears = data?.map((movie) => movie.year);
@@ -48,6 +49,10 @@ const AllMovies = () => {
   };
 
   const handleGenreClick = (genreId) => {
+    dispatch(setMoviesFilter({ selectedYear: "all" }));
+    setSelectedOption("all");
+    setSelectedGenre(genreId);
+
     if (genreId === "all") {
       dispatch(setFilteredMovies(data));
     } else {
@@ -56,15 +61,16 @@ const AllMovies = () => {
     }
   };
 
+  //YEAR SELECT
   const handleYearChange = (year) => {
+    setSelectedGenre("all");
+    setSelectedOption("all");
+
     if (year === "all") {
       // If "All Movies" option is selected, reset the selected year filter
       dispatch(setFilteredMovies(data));
       dispatch(setMoviesFilter({ selectedYear: year }));
-
-      // Alternatively, you can dispatch an action to fetch all movies from your data source
     } else {
-      // Otherwise, filter movies based on the selected year
       const filterByYear = data.filter(
         (movie) => movie.year === parseInt(year, 10)
       );
@@ -75,6 +81,9 @@ const AllMovies = () => {
   };
 
   const handleSortChange = (sortOption) => {
+    setSelectedGenre("all");
+    dispatch(setMoviesFilter({ selectedYear: "all" }));
+
     switch (sortOption) {
       case "all":
         dispatch(setFilteredMovies(data));
@@ -125,15 +134,16 @@ const AllMovies = () => {
             <section className=" w-[70%] text-center inline-block absolute mx-10 -bottom-[5rem]">
               <input
                 type="text"
-                className=" w-[70%] sm:w-[100%] py-2 border px-1 outline-none rounded"
+                className=" max-sm:w-[100%] w-[70%] py-2 max-sm:p-1 border px-1 outline-none rounded"
                 placeholder="Search Movie"
                 value={moviesFilter.searchTerm}
                 onChange={handleSearchChange}
               />
-              <section className="mt-3 ">
+              <section className="mt-3">
                 <select
-                  className="border w-[10%] sm:w-[15%] p-2 rounded text-black"
+                  className="border w-[15%] p-2 max-sm:p-1 rounded text-black"
                   onChange={(e) => handleGenreClick(e.target.value)}
+                  value={selectedGenre}
                 >
                   <option value="all">All Genres</option>
 
@@ -148,7 +158,7 @@ const AllMovies = () => {
                 </select>
 
                 <select
-                  className="border p-2 rounded ml-4 text-black w-[15%]"
+                  className="border p-2 max-sm:p-1 rounded ml-4 text-black w-[15%]"
                   value={moviesFilter.selectedYear}
                   onChange={(e) => handleYearChange(e.target.value)}
                 >
@@ -165,7 +175,7 @@ const AllMovies = () => {
                 </select>
 
                 <select
-                  className="border w-[15%]  p-2 rounded ml-4 text-black"
+                  className="border w-[15%] p-2 max-sm:p-1 rounded ml-4 text-black"
                   value={selectedOption}
                   onChange={(e) => handleSortChange(e.target.value)}
                 >
