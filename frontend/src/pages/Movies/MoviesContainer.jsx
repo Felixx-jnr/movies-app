@@ -16,13 +16,20 @@ const MoviesContainerPage = () => {
 
   const [selectedGenre, setSelectedGenre] = useState(null);
 
-  const handleGenreClick = (genreId) => {
-    setSelectedGenre(genreId);
+  const handleGenreClick = (genreName) => {
+    setSelectedGenre(genreName);
+    console.log(filteredMovies);
   };
 
-  const filteredMovies = data?.filter(
-    (movie) => selectedGenre === null || movie.genre === selectedGenre
-  );
+  const filteredMovies = data?.filter((movie) => {
+    // If no genre is selected, show all movies
+    //if (selectedGenre === null) return true;
+
+    // If the selected genre is included in the movie's genre array, show the movie
+    if (movie.genre === selectedGenre) {
+      console.log(filteredMovies);
+    }
+  });
 
   return (
     <div className="">
@@ -46,19 +53,16 @@ const MoviesContainerPage = () => {
               <button
                 key={g._id}
                 className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-1 text-md ${
-                  selectedGenre === g._id ? "bg-red-700" : ""
+                  selectedGenre === g.name ? "bg-red-700" : ""
                 }`}
-                onClick={() => handleGenreClick(g._id)}
+                onClick={() => handleGenreClick(g.name)}
               >
                 {g.name}
               </button>
             ))}
           </nav>
 
-          <SliderUtil
-            data={filteredMovies}
-            className="w-[100%]"
-          />
+          <SliderUtil data={filteredMovies} />
         </div>
 
         <div className=" mb-2 max-w-[100%] mx-10">
