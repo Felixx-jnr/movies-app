@@ -18,14 +18,14 @@ const MoviesContainerPage = () => {
 
   const [selectedGenre, setSelectedGenre] = useState(null);
 
-  const handleGenreClick = (genre) => {
-    setSelectedGenre(genre);
-    //console.log(genre);
+  const handleGenreClick = (genreId) => {
+    setSelectedGenre(genreId);
+    console.log(genreId);
   };
 
-  //selectedGenre === null || movie === selectedGenre
-
-  const filteredMovies = data?.filter((movie) => console.log(movie));
+  const filteredMovies = all?.filter(
+    (movie) => selectedGenre === null || movie.genrename === selectedGenre
+  );
 
   return (
     <div className="">

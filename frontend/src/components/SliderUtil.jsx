@@ -28,10 +28,10 @@ const SliderUtil = ({ data }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [slidesToShow]); // Include slidesToShow as a dependency
+  }, [slidesToShow]);
 
   const settings = {
-    infinite: data?.length > slidesToShow,
+    infinite: true,
     speed: 500,
     slidesToShow: slidesToShow,
     slidesToScroll: 1,
@@ -40,9 +40,6 @@ const SliderUtil = ({ data }) => {
     autoplay: true,
     autoplaySpeed: 3000,
   };
-
-  // const sliderData =
-  //   data?.length === 1 ? [data[0], data[0], data[0], data[0]] : data;
 
   return (
     <div>
