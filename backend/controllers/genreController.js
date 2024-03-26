@@ -1,5 +1,5 @@
-const Genre = require('../models/genreModels')
-const asyncHandler = require('../middlewares/asyncHandler')
+const Genre = require("../models/genreModels");
+const asyncHandler = require("../middlewares/asyncHandler");
 
 const createGenre = asyncHandler(async (req, res) => {
   try {
@@ -37,7 +37,6 @@ const updateGenre = asyncHandler(async (req, res) => {
 
     const updatedGenre = await genre.save();
     res.json(updatedGenre);
-
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Internal server error" });
@@ -80,4 +79,10 @@ const getOneGenre = asyncHandler(async (req, res) => {
   }
 });
 
-module.exports = {createGenre, updateGenre, removeGenre, listGenres, getOneGenre} 
+module.exports = {
+  createGenre,
+  updateGenre,
+  removeGenre,
+  listGenres,
+  getOneGenre,
+};

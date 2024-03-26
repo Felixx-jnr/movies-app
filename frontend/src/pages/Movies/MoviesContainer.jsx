@@ -3,6 +3,7 @@ import {
   useGetNewMoviesQuery,
   useGetTopMoviesQuery,
   useGetRandomMoviesQuery,
+  useGetAllMoviesQuery,
 } from "../../redux/api/movies";
 
 import { useFetchGenresQuery } from "../../redux/api/genre";
@@ -13,23 +14,18 @@ const MoviesContainerPage = () => {
   const { data: topMovies } = useGetTopMoviesQuery();
   const { data: genres } = useFetchGenresQuery();
   const { data: randomMovies } = useGetRandomMoviesQuery();
+  const { data: all } = useGetAllMoviesQuery();
 
   const [selectedGenre, setSelectedGenre] = useState(null);
 
-  const handleGenreClick = (genreName) => {
-    setSelectedGenre(genreName);
-    console.log(filteredMovies);
+  const handleGenreClick = (genre) => {
+    setSelectedGenre(genre);
+    //console.log(genre);
   };
 
-  const filteredMovies = data?.filter((movie) => {
-    // If no genre is selected, show all movies
-    //if (selectedGenre === null) return true;
+  //selectedGenre === null || movie === selectedGenre
 
-    // If the selected genre is included in the movie's genre array, show the movie
-    if (movie.genre === selectedGenre) {
-      console.log(filteredMovies);
-    }
-  });
+  const filteredMovies = data?.filter((movie) => console.log(movie));
 
   return (
     <div className="">
