@@ -124,7 +124,7 @@ const AllMovies = () => {
 
             <div className="relative z-10 text-center text-white mt-[10rem]">
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">
-                The Movies Hub
+                Movies HQ
               </h1>
               <p className="text-2xl">
                 Cinematic Odyssey: Unveiling the Magic of Movies
