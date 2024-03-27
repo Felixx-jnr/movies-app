@@ -126,9 +126,7 @@ const AllMovies = () => {
               <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold mb-4">
                 Movies HQ
               </h1>
-              <p className="text-2xl">
-                Cinematic Odyssey: Unveiling the Magic of Movies
-              </p>
+              <p className="text-2xl">Get All Your Movies In One Place</p>
             </div>
 
             <section className=" w-[70%] text-center inline-block absolute mx-10 -bottom-[5rem]">

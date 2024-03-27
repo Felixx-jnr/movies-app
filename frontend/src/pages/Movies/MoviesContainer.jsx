@@ -31,11 +31,11 @@ const MoviesContainerPage = () => {
     <div className="">
       <section className="flex flex-col justify-center items-center mx-auto max-w-[95%]">
         <div className="mb-3 max-w-[100%] mx-10">
-          <h1 className="mb-2 mt-10 text-center font-bold text-red-500 text-3xl sm:text-4xl">
+          <h1 className="mb-0 mt-5 text-center font-bold text-red-500 text-3xl md:text-4xl">
             Choose Movie
           </h1>
 
-          <nav className=" max-w-[100%] mx-auto flex flex-wrap justify-center mt-5">
+          <nav className=" max-w-[100%] mx-auto flex flex-wrap justify-center mt-3">
             <button
               className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-1
               }`}
@@ -62,14 +62,14 @@ const MoviesContainerPage = () => {
         </div>
 
         <div className=" mb-2 max-w-[100%] mx-10">
-          <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-3xl sm:text-4xl">
+          <h1 className="mb- mt-2 text-center font-bold text-red-500 text-3xl md:text-4xl">
             Top Movies
           </h1>
           <SliderUtil data={topMovies} />
         </div>
 
         <div className=" mb-2 max-w-[100%] mx-10">
-          <h1 className="mb-5 mt-5 text-center font-bold text-red-500 text-3xl sm:text-4xl">
+          <h1 className="mb-0 mt-2 text-center font-bold text-red-500 text-3xl md:text-4xl">
             Choose For You
           </h1>
           <SliderUtil data={randomMovies} />
