@@ -56,16 +56,16 @@ const MovieDetails = () => {
             className="w-[50rem] h-[30rem] rounded object-contain"
           />
         </div>
-        {/* Container One */}
+
         <div className="container px-3 flex mt-8">
-          <section>
+          <section className="max-w-[78%]">
             <h2 className="text-5xl my-2 font-bold ">{movie?.name}</h2>
             <p className="my-4 text-[#B0B0B0]">{movie?.detail}</p>
           </section>
 
           <div className="ml-auto px-4">
             <p className="text-2xl  font-semibold">
-              Releasing Date: {movie?.year}
+              Release Date: {movie?.year}
             </p>
 
             <div>
@@ -78,7 +78,7 @@ const MovieDetails = () => {
           </div>
         </div>
 
-        <div className=" mx-auto max-w-[98%]">
+        <div className=" mx-auto max-w-[90%]">
           <MovieTabs
             loadingMovieReview={loadingMovieReview}
             userInfo={userInfo}
