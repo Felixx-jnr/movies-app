@@ -32,6 +32,4 @@ app.use("/api/v1/genres", genreRoutes);
 app.use("/api/v1/movies", movieRoutes);
 app.use("/api/v1/upload", uploadRoutes);
 
-app.use("/upload", express.static("upload"));
-
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

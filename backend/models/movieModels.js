@@ -17,15 +17,15 @@ const reviewSchema = mongoose.Schema(
 
 const movieSchema = new mongoose.Schema(
   {
-    name: { type: String, required: true },
+    name: { type: String },
     image: { type: String },
-    year: { type: Number, required: true },
-    genre: { type: ObjectId, ref: "Genre", required: true },
+    year: { type: Number },
+    genre: { type: ObjectId, ref: "Genre" },
     genrename: { type: String },
-    detail: { type: String, required: true },
+    detail: { type: String },
     cast: [{ type: String }],
     reviews: [reviewSchema],
-    numReviews: { type: Number, required: true, default: 0 },
+    numReviews: { type: Number },
     createdAt: { type: Date, default: Date.now },
   },
   { timestamps: true }
