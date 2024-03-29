@@ -103,15 +103,15 @@ const CreateMovie = () => {
 
         navigate("/admin/movies-list");
 
-        // setMovieData({
-        //   name: "",
-        //   year: 0,
-        //   detail: "",
-        //   cast: [],
-        //   rating: 0,
-        //   image: null,
-        //   genre: "",
-        // });
+        setMovieData({
+          name: "",
+          year: 0,
+          detail: "",
+          cast: [],
+          rating: 0,
+          image: null,
+          genre: "",
+        });
 
         toast.success("Movie Added To Database");
         console.log("e don work");
