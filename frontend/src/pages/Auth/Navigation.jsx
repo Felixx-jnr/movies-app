@@ -52,8 +52,8 @@ const Navigation = () => {
   };
 
   return (
-    <div className="fixed left-auto top-1/2 bg-[#d64040] border rounded z-10 ml-2 p-1">
-      <section className="justify-center align-middle items-center ">
+    <div className=" fixed left-0 top-[40%]   bg-[#d64040] border rounded z-10 ml-2 p-1">
+      <section className="justify-center align-middle items-center">
         {/* Section 1 */}
         <div className="">
           <Link to="/">
