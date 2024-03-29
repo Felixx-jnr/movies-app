@@ -29,15 +29,13 @@ router.post("/", upload.single("image"), async (req, res) => {
       upload_preset: unsignedUploadPreset,
     });
 
-    // // Save the Cloudinary URL to your database
-    const imageUrl = result.secure_url;
-
-    // Create a new Movie instance and save the image URL
-    const movie = new Movie({ image: imageUrl });
+    // Save the Cloudinary URL to your database
+    const image = result.secure_url;
+    const movie = new Movie({ image: image });
     await movie.save();
 
     // Respond with the uploaded image URL
-    res.json({ imageUrl });
+    res.json({ image });
   } catch (error) {
     console.error("Error uploading image:", error);
     res.status(500).json({ error: "Failed to upload image" });

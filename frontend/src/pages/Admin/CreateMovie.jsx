@@ -40,7 +40,6 @@ const CreateMovie = () => {
         ...prevData,
         genre: genres[0]?._id || "",
       }));
-      console.log(genres[0]?._id);
     }
   }, [genres]);
 
@@ -89,7 +88,8 @@ const CreateMovie = () => {
         const uploadImageResponse = await uploadImage(formData);
 
         if (uploadImageResponse.data) {
-          uploadedImagePath = uploadImageResponse.data.image;
+          uploadedImagePath = uploadImageResponse.data.imageUrl;
+          console.log(uploadImageResponse);
         } else {
           console.error("Failed to upload image: ", uploadImageErrorDetails);
           toast.error("Failed to upload image");
@@ -103,17 +103,18 @@ const CreateMovie = () => {
 
         navigate("/admin/movies-list");
 
-        setMovieData({
-          name: "",
-          year: 0,
-          detail: "",
-          cast: [],
-          ratings: 0,
-          image: null,
-          genre: "",
-        });
+        // setMovieData({
+        //   name: "",
+        //   year: 0,
+        //   detail: "",
+        //   cast: [],
+        //   rating: 0,
+        //   image: null,
+        //   genre: "",
+        // });
 
         toast.success("Movie Added To Database");
+        console.log("e don work");
       }
     } catch (error) {
       console.error("Failed to create movie: ", createMovieErrorDetail);

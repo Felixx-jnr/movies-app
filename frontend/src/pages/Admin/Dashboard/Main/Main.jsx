@@ -19,10 +19,10 @@ const Main = () => {
   );
 
   return (
-    <div className=" mx-auto max-w-[98%]">
+    <div className=" mx-auto max-w-[98%] ml-10">
       <section className="mx-auto ">
         <div className="">
-          <div className="flex max-sm:block max-sm:ml-13 ml-40">
+          <div className="flex max-sm:block ml-40">
             <SecondaryCard
               pill="Users"
               content={visitors?.length}

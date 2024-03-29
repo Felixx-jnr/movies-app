@@ -3,9 +3,22 @@ const express = require("express");
 const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const path = require("path");
+const cors = require("cors");
 
 //Files
 const connectDB = require("./config/db");
+
+const corsOptions = {
+  origin: "*",
+  credentials: true,
+};
+
+const app = express();
+
+app.use(cors(corsOptions));
+
+dotenv.config();
+connectDB();
 
 //Routes
 const userRoutes = require("./routes/userRoutes");
@@ -14,10 +27,6 @@ const movieRoutes = require("./routes/movieRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 
 //configuration
-dotenv.config();
-connectDB();
-
-const app = express();
 
 //middleware
 app.use(express.json());

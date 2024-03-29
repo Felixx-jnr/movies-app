@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
-    <div className="fixed mt-5 mx-12 max-sm:mx-5">
+    <div className="fixed mt-5 ml-12">
       <aside className=" text-whiten flex-shrink-0">
         <ul className=" py-4 inline">
           <li className="text-lg bg-gradient-to-b from-red-500 to-red-400 rounded-full">
