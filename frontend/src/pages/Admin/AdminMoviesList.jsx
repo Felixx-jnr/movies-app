@@ -27,7 +27,9 @@ const AdminMoviesList = () => {
                       className="w-screen h-[20rem] object-cover"
                     />
                     <div className="border rounded border-gray-400">
-                      <div className=" text-red-500 text-xl">{movie.name}</div>
+                      <div className=" text-red-500 text-xl mx-2">
+                        {movie.name}
+                      </div>
                     </div>
 
                     <p className="overflow-hidden h-20 text-gray-700 text-base">

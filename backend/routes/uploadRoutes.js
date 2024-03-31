@@ -34,7 +34,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 
     // Create a new Movie instance and save the image URL
     const movie = new Movie({ image: imageUrl });
-    await movie.save();
+    //await movie.save();
 
     // Respond with the uploaded image URL
     res.json({ imageUrl });
