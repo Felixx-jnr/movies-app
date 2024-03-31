@@ -74,7 +74,7 @@ const UpdateMovie = () => {
         const uploadImageResponse = await uploadImage(formData);
 
         if (uploadImageResponse.data) {
-          uploadedImagePath = uploadImageResponse.data.image;
+          uploadedImagePath = uploadImageResponse.data.imageUrl;
         } else {
           console.error("Failed to upload image:", uploadImageErrorDetails);
           toast.error("Failed to upload image");
@@ -90,9 +90,11 @@ const UpdateMovie = () => {
         },
       });
 
+      toast.success("Movie Updated Successfully");
       navigate("/movies");
     } catch (error) {
       console.error("Failed to update movie:", error);
+      toast.error(`Failed to update movie: ${error?.message}`);
     }
   };
 

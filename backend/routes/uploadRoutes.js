@@ -32,10 +32,6 @@ router.post("/", upload.single("image"), async (req, res) => {
     // Save the Cloudinary URL to your database
     const imageUrl = result.secure_url;
 
-    // Create a new Movie instance and save the image URL
-    const movie = new Movie({ image: imageUrl });
-    //await movie.save();
-
     // Respond with the uploaded image URL
     res.json({ imageUrl });
   } catch (error) {
