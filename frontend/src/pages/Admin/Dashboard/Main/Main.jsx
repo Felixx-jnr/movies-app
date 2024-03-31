@@ -13,8 +13,8 @@ const Main = () => {
   const { data: allMovies } = useGetAllMoviesQuery();
 
   const totalCommentsLength = allMovies
-    ?.map((m) => m.numReviews) // Extract numReviews from each movie
-    .filter((length) => typeof length === "number" && !isNaN(length)); // Filter out non-numeric values
+    ?.map((m) => m.numReviews)
+    .filter((length) => typeof length === "number" && !isNaN(length));
 
   const sumOfCommentsLength = totalCommentsLength?.reduce(
     (acc, length) => acc + length,

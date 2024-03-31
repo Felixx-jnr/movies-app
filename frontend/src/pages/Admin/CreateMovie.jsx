@@ -89,7 +89,6 @@ const CreateMovie = () => {
 
         if (uploadImageResponse.data) {
           uploadedImagePath = uploadImageResponse.data.imageUrl;
-          console.log(uploadImageResponse);
         } else {
           console.error("Failed to upload image: ", uploadImageErrorDetails);
           toast.error("Failed to upload image");
@@ -114,7 +113,6 @@ const CreateMovie = () => {
         });
 
         toast.success("Movie Added To Database");
-        console.log("e don work");
       }
     } catch (error) {
       console.error("Failed to create movie: ", createMovieErrorDetail);
