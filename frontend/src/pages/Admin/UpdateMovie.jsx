@@ -110,11 +110,13 @@ const UpdateMovie = () => {
   };
 
   return (
-    <div className="container flex justify-center items-center mt-4">
-      <form>
-        <p className="text-green-200 w-[50rem] text-2xl mb-4">Update Movie</p>
+    <div className="container flex justify-center items-center mt-4 max-w-[95%] mx-auto">
+      <form className=" max-sm:w-[97%] max-md:w-[90%] max-lg:w-[70%] w-[60%]   mx-auto">
+        <p className="text-center text-red-500 font-bold text-4xl  mb-4">
+          Update Movie
+        </p>
 
-        <div className="mb-4">
+        <div className="mb-4 ">
           <label className="block">
             Name:
             <input
