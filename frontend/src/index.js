@@ -8,10 +8,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
 //RESTRICTED
-import Home from "./pages/Home";
-import Profile from "./pages/User/Profile";
-import Login from "./pages/Auth/Login";
-import Register from "./pages/Auth/Register";
+import Home from "./pages/Home.jsx";
+import Profile from "./pages/User/Profile.jsx";
+import Login from "./pages/Auth/Login.jsx";
+import Register from "./pages/Auth/Register.jsx";
 import PrivateRoute from "./pages/Auth/PrivateRoute.jsx";
 
 //AUTH
