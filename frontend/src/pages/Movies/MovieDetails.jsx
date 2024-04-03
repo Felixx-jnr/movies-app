@@ -56,6 +56,15 @@ const MovieDetails = () => {
             className="w-[50rem] h-[30rem] rounded object-contain"
           />
         </div>
+        <div className="flex justify-center items-center mt-4">
+          <button className=" px-2 py-2 mx-2 rounded-lg font-bold text- text-1xl border bg-teal-500">
+            Download Now
+          </button>
+          <button className=" px-2 py-2 mx-2 rounded-lg font-bold text- text-1xl border bg-red-500">
+            Watch Now
+          </button>
+        </div>
+
         {/* Container One */}
         <div className="container px-3 flex mt-8">
           <section>
