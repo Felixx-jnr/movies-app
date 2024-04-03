@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Loader from "../../components/Loader.jsx";
+import Loader from "../../components/loader.jsx";
 import banner from "../../assets/banner.jpg";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 import { useRegisterMutation } from "../../redux/api/users";

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import Loader from "../../components/Loader.jsx";
+import Loader from "../../components/loader.jsx";
 import { useProfileMutation } from "../../redux/api/users";
 import { setCredentials } from "../../redux/features/auth/authSlice";
 
