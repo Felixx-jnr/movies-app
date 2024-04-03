@@ -7,8 +7,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 
-if (process.env.NODE_ENV === "production") disableReactDevTools();
-
 //RESTRICTED
 import Home from "./pages/Home";
 import Profile from "./pages/User/Profile";
@@ -26,6 +24,8 @@ import AllMovies from "./pages/Movies/AllMovies.jsx";
 import MovieDetails from "./pages/Movies/MovieDetails.jsx";
 import AllComments from "./pages/Admin/AllComment.jsx";
 import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard.jsx";
+
+if (process.env.NODE_ENV === "production") disableReactDevTools();
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
