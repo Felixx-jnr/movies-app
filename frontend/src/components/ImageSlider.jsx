@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import picOne from "../assets/1.jpg";
 import picTwo from "../assets/2.jpg";
