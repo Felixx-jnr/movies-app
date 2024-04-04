@@ -99,6 +99,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "frontend", "src", "assets")));
 
 // Route for serving the index.html file
+// app.get("/", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../frontend/public//index.html"));
+// });
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "frontend", "public", "index.html"));
 });
