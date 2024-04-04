@@ -9,7 +9,7 @@ import { useGetUsersQuery } from "../../../../redux/api/users";
 
 const Main = () => {
   const { data: topMovies } = useGetTopMoviesQuery();
-  const { data: visitors } = useGetUsersQuery();
+  const { data: visitors, isLoading } = useGetUsersQuery();
   const { data: allMovies } = useGetAllMoviesQuery();
 
   const totalCommentsLength = allMovies
@@ -20,6 +20,10 @@ const Main = () => {
     (acc, length) => acc + length,
     0
   );
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
 
   console.log(visitors);
 
