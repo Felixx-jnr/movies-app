@@ -21,7 +21,7 @@ const Main = () => {
     0
   );
 
-  const sumOfVisitors = visitors?.length || 0;
+  const totalVisitor = visitors ? visitors.length : "Incoming";
 
   return (
     <div className=" mx-auto max-w-[98%] ml-10">
@@ -30,7 +30,7 @@ const Main = () => {
           <div className="flex max-sm:block ml-40">
             <SecondaryCard
               pill="Users"
-              content={sumOfVisitors}
+              content={totalVisitor}
               gradient="from-red-500 to-red-200"
             />
             <SecondaryCard
