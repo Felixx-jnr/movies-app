@@ -100,7 +100,9 @@ app.use(express.static(path.join(__dirname, "frontend", "src", "assets")));
 
 // Route for serving the index.html file
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend", "src", "assets", "index.html"));
+  res.sendFile(
+    path.join(__dirname, "frontend", "public", "assets", "index.html")
+  );
 });
 
 const PORT = process.env.PORT || 4000;
