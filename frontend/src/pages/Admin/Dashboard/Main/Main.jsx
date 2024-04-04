@@ -21,7 +21,7 @@ const Main = () => {
     0
   );
 
-  if (isLoading) {
+  if (!visitors) {
     return <div>Loading...</div>;
   }
 
