@@ -9,7 +9,7 @@ import { useGetUsersQuery } from "../../../../redux/api/users";
 
 const Main = () => {
   const { data: topMovies } = useGetTopMoviesQuery();
-  const { data: visitors, isLoading } = useGetUsersQuery();
+  const { data: visitors } = useGetUsersQuery();
   const { data: allMovies } = useGetAllMoviesQuery();
 
   const totalCommentsLength = allMovies
@@ -21,11 +21,14 @@ const Main = () => {
     0
   );
 
-  if (!visitors) {
+  // Check if visitors data is undefined (still loading) or empty (loaded but no visitors)
+  if (
+    visitors === undefined ||
+    (Array.isArray(visitors) && visitors.length === 0) ||
+    (typeof visitors === "object" && Object.keys(visitors).length === 0)
+  ) {
     return <div>Loading...</div>;
   }
-
-  console.log(visitors);
 
   return (
     <div className=" mx-auto max-w-[98%] ml-10">
@@ -34,7 +37,7 @@ const Main = () => {
           <div className="flex max-sm:block ml-40">
             <SecondaryCard
               pill="Users"
-              content={visitors?.length}
+              content={visitors.length}
               gradient="from-red-500 to-red-200"
             />
             <SecondaryCard
