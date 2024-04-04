@@ -62,9 +62,10 @@ const cors = require("cors");
 //Files
 const connectDB = require("./config/db");
 
-const whitelist = ["https://movieshq.onrender.com"];
+const whitelist = ["https://movieshq.onrender.com, "];
 
 // Configure CORS options
+
 const corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.indexOf(origin) !== -1 || !origin) {
@@ -94,12 +95,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-// Serve static files from the 'build' directory
-app.use(express.static(path.join(__dirname, "build")));
+// Serve static files from the frontend build directory
+app.use(express.static(path.join(__dirname, "frontend", "src", "assets")));
 
-// Always return the main index.html, so react-router render the route in the client
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "build", "index.html"));
+// Route for serving the index.html file
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "frontend", "src", "assets", "index.html"));
 });
 
 const PORT = process.env.PORT || 4000;

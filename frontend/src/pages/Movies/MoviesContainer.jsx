@@ -1,6 +1,5 @@
 import { useState } from "react";
 import {
-  useGetNewMoviesQuery,
   useGetTopMoviesQuery,
   useGetRandomMoviesQuery,
   useGetAllMoviesQuery,
@@ -10,7 +9,6 @@ import { useFetchGenresQuery } from "../../redux/api/genre";
 import SliderUtil from "../../components/SliderUtil";
 
 const MoviesContainerPage = () => {
-  const { data } = useGetNewMoviesQuery();
   const { data: topMovies } = useGetTopMoviesQuery();
   const { data: genres } = useFetchGenresQuery();
   const { data: randomMovies } = useGetRandomMoviesQuery();
@@ -18,9 +16,8 @@ const MoviesContainerPage = () => {
 
   const [selectedGenre, setSelectedGenre] = useState(null);
 
-  const handleGenreClick = (genreId) => {
-    setSelectedGenre(genreId);
-    console.log(genreId);
+  const handleGenreClick = (genre) => {
+    setSelectedGenre(genre);
   };
 
   const filteredMovies = all?.filter(
