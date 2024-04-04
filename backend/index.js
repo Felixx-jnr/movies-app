@@ -13,7 +13,7 @@ const whitelist = ["https://movieshq.onrender.com"];
 // Configure CORS options
 
 const corsOptions = {
-  origin: "*", // Allow from all origins
+  origin: "https://movieshq.onrender.com",
   credentials: true,
 };
 
