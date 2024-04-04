@@ -21,6 +21,8 @@ const Main = () => {
     0
   );
 
+  const sumOfVisitors = visitors?.length || 0;
+
   return (
     <div className=" mx-auto max-w-[98%] ml-10">
       <section className="mx-auto ">
@@ -28,7 +30,7 @@ const Main = () => {
           <div className="flex max-sm:block ml-40">
             <SecondaryCard
               pill="Users"
-              content={visitors?.length}
+              content={sumOfVisitors}
               gradient="from-red-500 to-red-200"
             />
             <SecondaryCard
