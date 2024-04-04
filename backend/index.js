@@ -66,21 +66,21 @@ const whitelist = ["https://movieshq.onrender.com"];
 
 // Configure CORS options
 
-const corsOptions = {
-  origin: "*", // Allow from all origins
-  credentials: true,
-};
-
 // const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
+//   origin: "*", // Allow from all origins
 //   credentials: true,
 // };
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
 
 const app = express();
 
