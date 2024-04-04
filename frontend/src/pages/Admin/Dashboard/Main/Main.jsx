@@ -21,15 +21,6 @@ const Main = () => {
     0
   );
 
-  // Check if visitors data is undefined (still loading) or empty (loaded but no visitors)
-  if (
-    visitors === undefined ||
-    (Array.isArray(visitors) && visitors.length === 0) ||
-    (typeof visitors === "object" && Object.keys(visitors).length === 0)
-  ) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className=" mx-auto max-w-[98%] ml-10">
       <section className="mx-auto ">
@@ -37,7 +28,7 @@ const Main = () => {
           <div className="flex max-sm:block ml-40">
             <SecondaryCard
               pill="Users"
-              content={visitors.length}
+              content={visitors?.length}
               gradient="from-red-500 to-red-200"
             />
             <SecondaryCard
