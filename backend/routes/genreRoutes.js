@@ -7,7 +7,13 @@ const genreController = require("../controllers/genreController");
 //Middlewares
 const authMiddleware = require("../middlewares/authMiddleware");
 
-router.post("/", genreController.createGenre);
+router.post(
+  "/",
+  authMiddleware.authenticate,
+  authMiddleware.authorizeAdmin,
+  genreController.createGenre
+);
+
 router.put(
   "/:id",
   authMiddleware.authenticate,
@@ -21,6 +27,7 @@ router.delete(
   authMiddleware.authorizeAdmin,
   genreController.removeGenre
 );
+
 router.get("/genres", genreController.listGenres);
 router.get("/:id", genreController.getOneGenre);
 
