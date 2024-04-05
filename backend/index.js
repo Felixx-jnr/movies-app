@@ -12,6 +12,7 @@ const connectDB = require("./config/db");
 
 const corsOptions = {
   origin: "https://movieshq.onrender.com",
+  origin: "https://movieshq-api.onrender.com",
   credentials: true,
 };
 
