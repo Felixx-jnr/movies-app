@@ -8,11 +8,6 @@ const cors = require("cors");
 //Files
 const connectDB = require("./config/db");
 
-const whitelist = [
-  "https://movieshq-api.onrender.com",
-  "https://movieshq.onrender.com",
-];
-
 // Configure CORS options
 
 const corsOptions = {
@@ -24,13 +19,7 @@ const corsOptions = {
 };
 
 // const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
+//   origin: "*",
 //   credentials: true,
 // };
 
