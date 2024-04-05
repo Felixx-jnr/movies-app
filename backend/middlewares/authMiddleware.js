@@ -10,7 +10,6 @@ const authenticate = asyncHandler(async (req, res, next) => {
   //Read JWT from the 'jwt' cookie
 
   token = req.cookies.jwt;
-  console.log(token);
 
   if (token) {
     try {
@@ -23,18 +22,40 @@ const authenticate = asyncHandler(async (req, res, next) => {
     }
   } else {
     res.status(401);
-    throw new Error("Not Authorized, no token Oga");
+    throw new Error("Not Authorized, no token");
   }
 });
 
 //Check if user is admin
 
-const authorizeAdmin = (req, res, next) => {
-  if (req.user && req.user.isAdmin) {
+// const authorizeAdmin = (req, res, next) => {
+//   if (req.user && req.user.isAdmin) {
+//     next();
+//   } else {
+//     res.status(401).send("Not authorized as an Admin");
+//   }
+// };
+
+const authorizeAdmin = async (req, res, next) => {
+  try {
+    const userId = req.user.id;
+
+    const user = await User.findById(userId);
+
+    if (!user || !user.isAdmin) {
+      return res.status(403).json({
+        message:
+          "Access denied. You are not authorized to perform this action.",
+      });
+    }
     next();
-  } else {
-    res.status(401).send("Not authorized as an Admin");
+  } catch (err) {
+    // Handle any errors
+    console.error("isAdminMiddleware error:", err);
+    return res.status(500).json({ message: "Internal Server Error" });
   }
 };
+
+module.exports = authorizeAdmin;
 
 module.exports = { authenticate, authorizeAdmin };
