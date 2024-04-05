@@ -22,23 +22,21 @@ const authenticate = async (req, res, next) => {
     }
 
     const token = tokenCookie.split("=")[1];
-    console.log("1");
+
     // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     if (!decoded) {
-      console.log("2");
       return res.status(401).json({ message: "Invalid token" });
     }
 
     // Retrieve the user from the database using the user ID from the token
     const user = await User.findById(decoded.userId);
     if (!user) {
-      console.log("3");
       return res.status(404).json({ message: "User not found" });
     }
 
     // Attach the user object to the request for further processing
-    req.user = user;
+    //req.user = user;
 
     // Proceed to the next middleware or route handler
     next();
