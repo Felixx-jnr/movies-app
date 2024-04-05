@@ -34,6 +34,7 @@ const Login = () => {
       const res = await login({ email, password }).unwrap();
       // Set token in request headers
       const token = res.token; // Assuming token is returned from server
+      localStorage.setItem("token", token);
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
       toast.success(`Welcome`);
