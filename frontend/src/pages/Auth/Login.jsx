@@ -33,8 +33,8 @@ const Login = () => {
     try {
       const res = await login({ email, password }).unwrap();
       // Set token in request headers
-      //const token = res.token; // Assuming token is returned from server
-      document.cookie = `jwt=${res.token}; Secure; SameSite=Strict; Path=/`;
+      const token = res.token; // Assuming token is returned from server
+
       dispatch(setCredentials({ ...res }));
       navigate(redirect);
       toast.success(`Welcome`);
