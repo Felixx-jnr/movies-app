@@ -44,7 +44,7 @@ router.post("/reviews/:id", authenticate, checkId, movieReview);
 
 //ADMIN ROUTES
 //CREATE A MOVIE
-router.post("/create", authenticate, authorizeAdmin, createMovie);
+router.post("/create", authorizeAdmin, createMovie);
 
 //UPDATE A MOVIE
 router.put("/update/:id", authenticate, authorizeAdmin, updateMovie);
