@@ -7,7 +7,6 @@ const genreController = require("../controllers/genreController");
 //Middlewares
 const authMiddleware = require("../middlewares/authMiddleware");
 
-
 router.post("/", genreController.createGenre);
 router.put(
   "/:id",
@@ -15,7 +14,7 @@ router.put(
   authMiddleware.authorizeAdmin,
   genreController.updateGenre
 );
->>>>>>> parent of 05f2bee (local working well)
+
 router.delete(
   "/:id",
   authMiddleware.authorizeAdmin,
