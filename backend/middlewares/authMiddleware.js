@@ -22,16 +22,18 @@ const authenticate = async (req, res, next) => {
     }
 
     const token = tokenCookie.split("=")[1];
-    console.log(token);
+    console.log("1");
     // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     if (!decoded) {
+      console.log("2");
       return res.status(401).json({ message: "Invalid token" });
     }
 
     // Retrieve the user from the database using the user ID from the token
     const user = await User.findById(decoded.userId);
     if (!user) {
+      console.log("3");
       return res.status(404).json({ message: "User not found" });
     }
 
