@@ -9,7 +9,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 router.post("/", genreController.createGenre);
 
-router.put("/:id", authMiddleware.authorizeAdmin, genreController.updateGenre);
+router.put("/:id", genreController.updateGenre);
 
 router.delete(
   "/:id",
