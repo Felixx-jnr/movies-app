@@ -11,21 +11,12 @@ const connectDB = require("./config/db");
 // Configure CORS options
 
 const corsOptions = {
-  origin: [
-    "https://movieshq-api.onrender.com",
-    "https://movieshq.onrender.com",
-  ],
+  origin: "https://movieshq.onrender.com",
   credentials: true,
 };
 
 // const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
+//   origin: "*",
 //   credentials: true,
 // };
 
