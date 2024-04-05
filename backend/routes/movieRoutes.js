@@ -44,15 +44,15 @@ router.post("/reviews/:id", movieReview);
 
 //ADMIN ROUTES
 //CREATE A MOVIE
-router.post("/create", authenticate, createMovie);
+router.post("/create", authenticate, authorizeAdmin, createMovie);
 
 //UPDATE A MOVIE
-router.put("/update/:id", authenticate, updateMovie);
+router.put("/update/:id", authenticate, authorizeAdmin, updateMovie);
 
 //DELETE A MOVIE
-router.delete("/delete-movie/:id", authenticate, deleteMovie);
+router.delete("/delete-movie/:id", authenticate, authorizeAdmin, deleteMovie);
 
 //DELETE COMMENT
-router.delete("/delete-comment", authenticate, deleteComment);
+router.delete("/delete-comment", authenticate, authorizeAdmin, deleteComment);
 
 module.exports = router;

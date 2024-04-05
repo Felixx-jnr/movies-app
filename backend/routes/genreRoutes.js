@@ -16,11 +16,11 @@ const {
   authorizeAdmin,
 } = require("../middlewares/authMiddleware");
 
-router.post("/", authenticate, createGenre);
+router.post("/", authenticate, authorizeAdmin, createGenre);
 
-router.put("/:id", authenticate, updateGenre);
+router.put("/:id", authenticate, authorizeAdmin, updateGenre);
 
-router.delete("/:id", authenticate, removeGenre);
+router.delete("/:id", authenticate, authorizeAdmin, removeGenre);
 
 router.get("/genres", listGenres);
 
