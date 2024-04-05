@@ -9,11 +9,22 @@ const authMiddleware = require("../middlewares/authMiddleware");
 
 router.post("/", genreController.createGenre);
 
-router.put("/:id", genreController.updateGenre);
+router.put(
+  "/:id",
+  authMiddleware.authenticate,
+  authMiddleware.authorizeAdmin,
+  genreController.updateGenre
+);
 
-router.delete("/:id", genreController.removeGenre);
+router.delete(
+  "/:id",
+  authMiddleware.authenticate,
+  authMiddleware.authorizeAdmin,
+  genreController.removeGenre
+);
 
 router.get("/genres", genreController.listGenres);
+
 router.get("/:id", genreController.getOneGenre);
 
 module.exports = router;
