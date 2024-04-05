@@ -4,7 +4,7 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const path = require("path");
 const cors = require("cors");
-const axiosConfig = require("../backend/config/axiosConfig");
+const axiosConfig = require("../frontend/axiosConfig");
 
 //Files
 const connectDB = require("./config/db");
@@ -36,7 +36,9 @@ app.use(cors(corsOptions));
 dotenv.config();
 connectDB();
 
+// Configure Axios with the token
 axiosConfig();
+
 //Routes
 const userRoutes = require("./routes/userRoutes");
 const genreRoutes = require("./routes/genreRoutes");
