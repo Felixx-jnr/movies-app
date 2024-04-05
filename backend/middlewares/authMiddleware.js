@@ -4,11 +4,13 @@ const User = require("../models/userModel");
 // Middleware function to authenticate users
 const authenticate = async (req, res, next) => {
   try {
-    // Extract the token from the request headers
-    const token = req.headers.authorization.split(" ")[1];
-    if (!token) {
+    // Check if the Authorization header exists
+    if (!req.headers.authorization) {
       return res.status(401).json({ message: "No token provided" });
     }
+
+    // Extract the token from the request headers
+    const token = req.headers.authorization.split(" ")[1];
 
     // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
