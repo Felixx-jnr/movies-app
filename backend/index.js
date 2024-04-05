@@ -12,10 +12,10 @@ const whitelist = ["https://movieshq.onrender.com"];
 
 // Configure CORS options
 
-const corsOptions = {
-  origin: "*",
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true,
+// };
 
 // const corsOptions = {
 //   origin: function (origin, callback) {
@@ -30,7 +30,7 @@ const corsOptions = {
 
 const app = express();
 
-app.use(cors(corsOptions));
+app.use(cors());
 
 dotenv.config();
 connectDB();
