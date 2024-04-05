@@ -47,7 +47,7 @@ router.post("/reviews/:id", authenticate, checkId, movieReview);
 router.post("/create", authorizeAdmin, createMovie);
 
 //UPDATE A MOVIE
-router.put("/update/:id", authenticate, authorizeAdmin, updateMovie);
+router.put("/update/:id", authorizeAdmin, updateMovie);
 
 //DELETE A MOVIE
 router.delete("/delete-movie/:id", authenticate, authorizeAdmin, deleteMovie);
