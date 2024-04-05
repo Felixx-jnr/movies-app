@@ -6,6 +6,7 @@ const asyncHandler = require("./asyncHandler");
 
 const authenticate = async (req, res, next) => {
   try {
+    cons;
     // Check if the cookie header exists
     if (!req.headers.cookie) {
       return res.status(401).json({ message: "No token provided" });
@@ -21,7 +22,7 @@ const authenticate = async (req, res, next) => {
     }
 
     const token = tokenCookie.split("=")[1];
-
+    console.log(token);
     // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     if (!decoded) {
