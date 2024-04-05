@@ -4,7 +4,6 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const path = require("path");
 const cors = require("cors");
-const axiosConfig = require("../frontend/axiosConfig");
 
 //Files
 const connectDB = require("./config/db");
@@ -13,10 +12,10 @@ const whitelist = ["https://movieshq.onrender.com"];
 
 // Configure CORS options
 
-const corsOptions = {
-  origin: "https://movieshq.onrender.com",
-  credentials: true,
-};
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true,
+// };
 
 // const corsOptions = {
 //   origin: function (origin, callback) {
@@ -31,13 +30,10 @@ const corsOptions = {
 
 const app = express();
 
-app.use(cors(corsOptions));
+//app.use(cors(corsOptions));
 
 dotenv.config();
 connectDB();
-
-// Configure Axios with the token
-axiosConfig();
 
 //Routes
 const userRoutes = require("./routes/userRoutes");
