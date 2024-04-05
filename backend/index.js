@@ -17,20 +17,20 @@ const whitelist = ["https://movieshq.onrender.com"];
 //   credentials: true,
 // };
 
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1 || !origin) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error("Not allowed by CORS"));
-//     }
-//   },
-//   credentials: true,
-// };
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+};
 
 const app = express();
 
-//app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 
 dotenv.config();
 connectDB();
