@@ -16,7 +16,10 @@ const whitelist = [
 // Configure CORS options
 
 const corsOptions = {
-  origin: "*",
+  origin: [
+    "https://movieshq-api.onrender.com",
+    "https://movieshq.onrender.com",
+  ],
   credentials: true,
 };
 
