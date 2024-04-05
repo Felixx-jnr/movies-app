@@ -40,19 +40,19 @@ router.get("/top-movies", getTopMovies);
 router.get("/random-movies", getRandomMovies);
 
 //RESTRICTED ROUTES
-router.post("/reviews/:id", authenticate, checkId, movieReview);
+router.post("/reviews/:id", movieReview);
 
 //ADMIN ROUTES
 //CREATE A MOVIE
-router.post("/create", authorizeAdmin, createMovie);
+router.post("/create", createMovie);
 
 //UPDATE A MOVIE
-router.put("/update/:id", authorizeAdmin, updateMovie);
+router.put("/update/:id", updateMovie);
 
 //DELETE A MOVIE
-router.delete("/delete-movie/:id", authenticate, authorizeAdmin, deleteMovie);
+router.delete("/delete-movie/:id", deleteMovie);
 
 //DELETE COMMENT
-router.delete("/delete-comment", authenticate, authorizeAdmin, deleteComment);
+router.delete("/delete-comment", deleteComment);
 
 module.exports = router;
