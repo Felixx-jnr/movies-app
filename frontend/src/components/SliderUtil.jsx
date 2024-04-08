@@ -9,7 +9,7 @@ const SliderUtil = ({ data }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 480) {
+      if (window.innerWidth < 200) {
         setSlidesToShow(1);
       } else if (window.innerWidth < 700) {
         setSlidesToShow(2);

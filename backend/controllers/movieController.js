@@ -1,30 +1,26 @@
-const Movie = require('../models/movieModels')
+const Movie = require("../models/movieModels");
 
 //CREATE A MOVIE
-const createMovie = async(req, res) => {
+const createMovie = async (req, res) => {
   try {
     const newMovie = new Movie(req.body);
 
     const savedMovie = await newMovie.save();
     res.json(savedMovie);
-
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
-
-}
+};
 
 //GET ALL MOVIES
-const getAllMovies = async(req, res) => {
+const getAllMovies = async (req, res) => {
   try {
-    const movies = await Movie.find()
-    res.json(movies)
-    
+    const movies = await Movie.find();
+    res.json(movies);
   } catch (error) {
-    res.status(500).json({error: error.message})
-    
+    res.status(500).json({ error: error.message });
   }
-}
+};
 
 //GET SPECIFIC MOVIE
 const getSpecificMovie = async (req, res) => {
@@ -111,7 +107,6 @@ const deleteMovie = async (req, res) => {
     }
 
     res.json({ message: "Movie Deleted Successfully" });
-
   } catch (error) {
     res.status(500).json({ error: error.message });
   }
@@ -128,7 +123,7 @@ const deleteComment = async (req, res) => {
     }
 
     const reviewIndex = movie.reviews.findIndex(
-      (r) => r._id.toString() === reviewId 
+      (r) => r._id.toString() === reviewId
     );
 
     if (reviewIndex === -1) {
@@ -183,4 +178,15 @@ const getRandomMovies = async (req, res) => {
   }
 };
 
-module.exports = {createMovie, getAllMovies, getSpecificMovie, updateMovie, movieReview, deleteMovie, deleteComment, getTopMovies, getNewMovies, getRandomMovies}
+module.exports = {
+  createMovie,
+  getAllMovies,
+  getSpecificMovie,
+  updateMovie,
+  movieReview,
+  deleteMovie,
+  deleteComment,
+  getTopMovies,
+  getNewMovies,
+  getRandomMovies,
+};

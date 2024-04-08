@@ -52,7 +52,7 @@ const Navigation = () => {
   };
 
   return (
-    <div className=" fixed left-0 top-[40%]   bg-[#d64040] border rounded z-10 ml-2 p-1">
+    <div className=" fixed left-0 top-[40%] bg-[#d64040] rounded z-10 ml-2 p-1">
       <section className="justify-center align-middle items-center">
         {/* Section 1 */}
         <div className="">
