@@ -22,17 +22,17 @@ const Main = () => {
   );
 
   return (
-    <div className=" mx-auto max-w-[98%] ml-10">
-      <section className="mx-auto ">
-        <div className="">
-          <div className="flex max-sm:block ml-40">
+    <div className=" mx-auto max-w-[98%]">
+      <section className="mx-auto max-w-[98%] ">
+        <div className="text-center">
+          <div className="flex max-sm:block justify-center">
             <SecondaryCard
               pill="Users"
               content={visitors?.length}
               gradient="from-red-500 to-red-200"
             />
             <SecondaryCard
-              className=""
+              className="text-center justify-center"
               pill="Comments"
               content={sumOfCommentsLength}
               gradient="from-red-500 to-red-300"
@@ -44,7 +44,7 @@ const Main = () => {
             />
           </div>
 
-          <div className=" flex text-white mt-10 font-semibold max-w-[70%] mr-3 sm:max-w-[60%] ml-48">
+          <div className=" flex text-white mt-10 font-semibold max-w-[100%]">
             <p className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl">
               Top Content
             </p>
