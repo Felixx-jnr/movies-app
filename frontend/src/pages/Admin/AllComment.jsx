@@ -24,7 +24,7 @@ const AllComments = () => {
       {movie?.map((m) => (
         <section
           key={m._id}
-          className="flex flex-col justify-center items-center"
+          className="flex flex-col justify-center items-center my-4"
         >
           {m?.reviews.map((review) => (
             <div
@@ -32,7 +32,9 @@ const AllComments = () => {
               className="bg-[#1A1A1A] p-4 rounded-lg w-[90%] mt-[2rem]"
             >
               <div className="flex justify-between">
-                <strong className="text-[#B0B0B0]">{review.name}</strong>
+                <strong className="text-[#B0B0B0] capitalize">
+                  {review.name}
+                </strong>
                 <p className="text-[#B0B0B0]">
                   {review.createdAt.substring(0, 10)}
                 </p>
