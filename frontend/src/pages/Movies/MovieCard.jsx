@@ -8,12 +8,12 @@ const MovieCard = ({ movie }) => {
     >
       <Link
         to={`/movies/${movie._id}`}
-        className="w-[100%] mx-0 px-0"
+        className="w-[100%] "
       >
         <img
           src={movie.image}
           alt={movie.name}
-          className="w-[95%] h-[15rem] my-3 mx-3 object-cover rounded transition duration-300 ease-in-out transform group-hover:opacity-50"
+          className="w-[95%] h-[15rem] my-2 object-cover rounded transform group-hover:opacity-50"
         />
       </Link>
 

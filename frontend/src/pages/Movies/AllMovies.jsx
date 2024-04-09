@@ -134,14 +134,14 @@ const AllMovies = () => {
             <section className=" w-[70%] text-center inline-block absolute mx-10 -bottom-[5rem]">
               <input
                 type="text"
-                className=" max-sm:w-[100%] w-[70%] py-2 max-sm:p-1 border px-1 outline-none rounded"
+                className=" max-sm:w-[100%] w-[70%] py-1 max-sm:p-1 border px-1 outline-none rounded"
                 placeholder="Search Movie"
                 value={moviesFilter.searchTerm}
                 onChange={handleSearchChange}
               />
-              <section className="mt-3">
+              <section className="">
                 <select
-                  className="border w-[15%] p-2 max-sm:p-1 rounded text-black"
+                  className="border w-[15%] max-md:w-[30%] p-2 max-sm:p-1 rounded text-black"
                   onChange={(e) => handleGenreClick(e.target.value)}
                   value={selectedGenre}
                 >
@@ -158,7 +158,7 @@ const AllMovies = () => {
                 </select>
 
                 <select
-                  className="border p-2 max-sm:p-1 rounded ml-4 text-black w-[15%]"
+                  className="border p-2 max-sm:p-1 rounded ml-4 text-black w-[15%] max-md:w-[25%]"
                   value={moviesFilter.selectedYear}
                   onChange={(e) => handleYearChange(e.target.value)}
                 >
@@ -175,7 +175,7 @@ const AllMovies = () => {
                 </select>
 
                 <select
-                  className="border w-[15%] p-2 max-sm:p-1 rounded ml-4 text-black"
+                  className="border w-[15%] my-5 max-md:w-[30%] p-2 max-sm:p-1 rounded ml-4 text-black"
                   value={selectedOption}
                   onChange={(e) => handleSortChange(e.target.value)}
                 >
@@ -187,7 +187,7 @@ const AllMovies = () => {
               </section>
             </section>
           </div>{" "}
-          <section className="max-w-[60%] sm:max-w-[100%] mt-[6rem] w-[95%] grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 mx-auto">
+          <section className=" sm:max-w-[100%] mt-[6rem] w-[95%] grid grid-cols-2 lg:grid-cols-4 md:grid-cols-3 mx-auto">
             {filteredMovies?.map((movie) => (
               <MovieCard
                 key={movie._id}
