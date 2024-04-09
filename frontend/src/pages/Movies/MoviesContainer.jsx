@@ -34,7 +34,7 @@ const MoviesContainerPage = () => {
 
           <nav className=" max-w-[100%] mx-auto flex flex-wrap justify-center mt-5">
             <button
-              className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-1
+              className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-1 mx-1 border-none shadow shadow-red-900 bg-neutral-700
               }`}
               onClick={() => setSelectedGenre(null)}
             >
@@ -45,7 +45,7 @@ const MoviesContainerPage = () => {
             {genres?.map((g) => (
               <button
                 key={g._id}
-                className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 rounded mb-1 text-md ${
+                className={`transition duration-300 ease-in-out hover:bg-red-500 block p-2 border-none mx-1 bg-neutral-700 shadow shadow-red-900 rounded mb-1 text-md ${
                   selectedGenre === g.name ? "bg-red-700" : ""
                 }`}
                 onClick={() => handleGenreClick(g.name)}
