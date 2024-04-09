@@ -36,7 +36,7 @@ const Header = () => {
         </div>
       </nav>
 
-      <div className="">
+      <div className="w-[100%]">
         <ImageSlider />
       </div>
     </div>
