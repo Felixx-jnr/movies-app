@@ -1,7 +1,7 @@
 const VideoCard = ({ image, title, date, comments }) => {
   return (
     <>
-      <div className="flex items-center max-w-[100%] mt-5 mx-auto">
+      <div className="flex items-center mt-5">
         <div>
           <img
             src={image}
@@ -12,7 +12,7 @@ const VideoCard = ({ image, title, date, comments }) => {
 
         <div className="ml-4">
           <h2 className="text-lg text-white">{title}</h2>
-          <p className="text-gray-500 ">{date}</p>
+          <p className="text-gray-500 text-left">{date}</p>
         </div>
 
         <div className="flex-grow mb-5 flex justify-end items-center">

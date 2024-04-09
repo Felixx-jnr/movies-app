@@ -22,10 +22,10 @@ const Main = () => {
   );
 
   return (
-    <div className=" mx-auto max-w-[98%]">
+    <div className=" mx-auto max-w-[100%] max-md:max-w-[70%]">
       <section className="mx-auto max-w-[98%] ">
         <div className="text-center">
-          <div className="flex max-sm:block justify-center">
+          <div className="flex items-center justify-center">
             <SecondaryCard
               pill="Users"
               content={visitors?.length}
@@ -44,7 +44,7 @@ const Main = () => {
             />
           </div>
 
-          <div className=" flex text-white mt-10 font-semibold max-w-[100%]">
+          <div className=" flex text-white mt-10 font-semibold">
             <p className="text-2xl sm:text-2xl md:text-2xl lg:text-2xl">
               Top Content
             </p>

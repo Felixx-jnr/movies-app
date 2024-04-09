@@ -3,8 +3,8 @@ import Sidebar from "./Sidebar/Sidebar";
 
 const AdminDashboard = () => {
   return (
-    <div className="flex max-w-[98%] mx-auto">
-      {/* <Sidebar /> */}
+    <div className="max-w-[90%] mx-auto">
+      <Sidebar />
       <Main />
     </div>
   );
