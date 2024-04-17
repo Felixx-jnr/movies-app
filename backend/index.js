@@ -28,6 +28,10 @@ const genreRoutes = require("./routes/genreRoutes");
 const movieRoutes = require("./routes/movieRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 
+app.get("/", (req, res) => {
+  res.send("MoviesHq API working");
+});
+
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
