@@ -45,7 +45,7 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/public/index.html"));
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 //Routes
 app.use("/api/v1/users", userRoutes);
