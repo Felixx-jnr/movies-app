@@ -23,9 +23,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "fullstack": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "nodemon backend/index.js",
-    "frontend": "cd frontend && npm run start",
     "build": "node index.js"
   },
   "author": "",
