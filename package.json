@@ -23,8 +23,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "backend": "nodemon backend/index.js",
-    "build": "node index.js"
+    "backend": "nodemon backend/index.js"
   },
   "author": "",
   "license": "ISC",
