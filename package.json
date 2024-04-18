@@ -30,13 +30,9 @@
     "fullstack": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "nodemon backend/index.js",
     "frontend": "cd frontend && npm run dev",
-    "start": "netlify-lambda serve ./",
-    "build": "netlify-lambda build backend"
+    "build": "node backend/index.js"
   },
   "author": "",
   "license": "ISC",
   "description": ""
 }
-
-
-
