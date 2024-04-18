@@ -28,10 +28,6 @@ const genreRoutes = require("./routes/genreRoutes");
 const movieRoutes = require("./routes/movieRoutes");
 const uploadRoutes = require("./routes/uploadRoutes");
 
-app.get("/", (req, res) => {
-  res.send("MoviesHq API working");
-});
-
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -43,6 +39,10 @@ app.use(express.static(path.join(__dirname, "frontend", "src", "assets")));
 // Route for serving the index.html file
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/public/index.html"));
+});
+
+app.get("/", (req, res) => {
+  res.send("MoviesHq API working");
 });
 
 const PORT = process.env.PORT || 4000;
