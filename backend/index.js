@@ -11,9 +11,14 @@ const connectDB = require("./config/db");
 // Configure CORS options
 
 const corsOptions = {
-  origin: ["https://movieshq.onrender.com"],
+  origin: ["https://movieshq.onrender.com", "http://localhost:3000"],
   credentials: true,
 };
+
+// const corsOptions = {
+//   origin: "*",
+//   credentials: true,
+// };
 
 const app = express();
 

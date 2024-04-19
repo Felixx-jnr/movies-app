@@ -14,8 +14,8 @@ const unsignedUploadPreset = "UnsignedUpload";
 
 cloudinary.config({
   cloud_name: cloudName,
-  api_key: 274681121237253,
-  api_secret: "axtnn4Z2t-KdAfkAQ85E1_bhcVA",
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
 });
 
 // Route to handle image upload
