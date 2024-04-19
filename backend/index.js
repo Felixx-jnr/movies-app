@@ -41,10 +41,6 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend/public/index.html"));
 });
 
-app.get("/", (req, res) => {
-  res.send("Yes it is good");
-});
-
 const PORT = process.env.PORT || 4000;
 
 //Routes

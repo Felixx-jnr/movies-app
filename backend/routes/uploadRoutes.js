@@ -6,15 +6,16 @@ const multer = require("multer");
 const Movie = require("../models/movieModels");
 
 // Configure multer to handle file uploads
-const upload = multer({ storage: multer.memoryStorage() });
+//const upload = multer({ storage: multer.memoryStorage() });
+const upload = multer({ dest: "upload/" });
 
 const cloudName = "dyf0wsiaf";
 const unsignedUploadPreset = "UnsignedUpload";
 
 cloudinary.config({
   cloud_name: cloudName,
-  api_key: process.env.API_KEY,
-  api_secret: process.env.API_SECRET,
+  api_key: 274681121237253,
+  api_secret: "axtnn4Z2t-KdAfkAQ85E1_bhcVA",
 });
 
 // Route to handle image upload
@@ -25,7 +26,7 @@ router.post("/", upload.single("image"), async (req, res) => {
     }
 
     // Upload image to Cloudinary
-    const result = await cloudinary.uploader.upload(req.file.buffer, {
+    const result = await cloudinary.uploader.upload(req.file.path, {
       upload_preset: unsignedUploadPreset,
     });
 
