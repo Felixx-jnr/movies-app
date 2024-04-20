@@ -68,55 +68,37 @@ const CreateMovie = () => {
 
   const handleCreateMovie = async () => {
     try {
-      if (
-        !movieData.name ||
-        !movieData.year ||
-        !movieData.detail ||
-        !movieData.cast ||
-        !selectedImage
-      ) {
-        toast.error("Please fill all required fields");
+      if (!selectedImage) {
+        toast.error("Please select an image");
         return;
       }
 
-      let uploadedImagePath = null;
+      // Step 1: Upload the image to get the `imageUrl`
+      const formData = new FormData();
+      formData.append("image", selectedImage);
 
-      if (selectedImage) {
-        const formData = new FormData();
-        formData.append("image", selectedImage);
+      const uploadImageResponse = await uploadImage(formData);
 
-        const uploadImageResponse = await uploadImage(formData);
+      if (uploadImageResponse.data && uploadImageResponse.data.image) {
+        const imageUrl = uploadImageResponse.data.image;
 
-        if (uploadImageResponse.data) {
-          uploadedImagePath = uploadImageResponse.data.imageUrl;
-        } else {
-          console.error("Failed to upload image: ", uploadImageErrorDetails);
-          toast.error("Failed to upload image");
-          return;
-        }
-
-        await createMovie({
+        // Step 2: Create the movie with the `imageUrl`
+        const movieToCreate = {
           ...movieData,
-          image: uploadedImagePath,
-        });
+          image: imageUrl, // Include the uploaded image URL
+        };
 
+        await createMovie(movieToCreate);
+
+        // Success message and redirect
+        toast.success("Movie created successfully");
         navigate("/admin/movies-list");
-
-        setMovieData({
-          name: "",
-          year: 0,
-          detail: "",
-          cast: [],
-          rating: 0,
-          image: null,
-          genre: "",
-        });
-
-        toast.success("Movie Added To Database");
+      } else {
+        throw new Error("Failed to upload image");
       }
     } catch (error) {
-      console.error("Failed to create movie: ", createMovieErrorDetail);
-      toast.error(`Failed to create movie: ${createMovieErrorDetail?.message}`);
+      console.error("Error creating movie:", error);
+      toast.error("An error occurred while creating the movie");
     }
   };
 
