@@ -11,7 +11,7 @@ const connectDB = require("./config/db");
 // Configure CORS options
 
 const corsOptions = {
-  origin: "https://moviehq.vercel.app/",
+  origin: "https://moviehq.vercel.app",
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
@@ -23,7 +23,7 @@ const app = express();
 app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://moviehq.vercel.app/");
+  res.header("Access-Control-Allow-Origin", "https://moviehq.vercel.app");
   res.header("Access-Control-Allow-Credentials", "true");
   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE"); // Optional redundancy
   next();
