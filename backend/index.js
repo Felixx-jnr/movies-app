@@ -13,9 +13,9 @@ const connectDB = require("./config/db");
 const corsOptions = {
   origin: "https://movieshq.onrender.com",
   credentials: true,
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allow specific HTTP methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Permit specific headers
-  exposedHeaders: ["Authorization"], // If you need to read headers from responses
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  exposedHeaders: ["Authorization"],
 };
 
 const app = express();
