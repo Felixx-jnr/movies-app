@@ -625,12 +625,13 @@
     "stream-http": "^2.8.3",
     "stream-promise": "^3.2.0",
     "stream-shift": "^1.0.3",
+    "streamifier": "^0.1.1",
     "streamsearch": "^1.1.0",
+    "string_decoder": "^1.1.1",
     "string-width": "^4.2.3",
     "string.prototype.trim": "^1.2.9",
     "string.prototype.trimend": "^1.0.8",
     "string.prototype.trimstart": "^1.0.8",
-    "string_decoder": "^1.1.1",
     "strip-ansi": "^6.0.1",
     "strip-dirs": "^2.1.0",
     "strip-outer": "^1.0.1",
@@ -735,7 +736,6 @@
     "yocto-queue": "^0.1.0",
     "zip-stream": "^4.1.1"
   },
-  "devDependencies": {},
   "scripts": {
     "fullstack": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && npm run backend",
