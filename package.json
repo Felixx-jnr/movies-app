@@ -738,9 +738,9 @@
     "zip-stream": "^4.1.1"
   },
   "scripts": {
-    "fullstack": "concurrently \"npm run frontend\" \"npm run backend\" ",
+    "build": "concurrently \"npm run frontend\" \"npm run backend\" ",
     "backend": "cd backend && npm run backend",
-    "frontend": "cd frontend && npm run frontend"
+    "frontend": "cd frontend && npm run start"
   },
   "author": "",
   "license": "ISC"
