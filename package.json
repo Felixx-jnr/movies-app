@@ -122,6 +122,7 @@
     "compress-commons": "^4.1.2",
     "concat-map": "^0.0.1",
     "concat-stream": "^1.6.2",
+    "concurrent": "^0.3.2",
     "concurrently": "^8.2.2",
     "console-browserify": "^1.2.0",
     "console-control-strings": "^1.1.0",
@@ -737,7 +738,7 @@
     "zip-stream": "^4.1.1"
   },
   "scripts": {
-    "fullstack": "concurrently \"npm run backend\" \"cd frontend && npm run build\"",
+    "fullstack": "concurrently \"npm run backend\" \"npm run frontend\"",
     "backend": "cd backend && npm run backend",
     "frontend": "cd frontend && npm run build"
   },
