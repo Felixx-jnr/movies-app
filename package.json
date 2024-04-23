@@ -740,7 +740,7 @@
   "scripts": {
     "fullstack": "concurrently \"npm run frontend\" \"npm run backend\" ",
     "backend": "cd backend && npm run backend",
-    "frontend": "cd frontend && npm run build"
+    "frontend": "cd frontend && npm run frontend"
   },
   "author": "",
   "license": "ISC"
