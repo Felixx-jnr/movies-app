@@ -737,7 +737,9 @@
   },
   "devDependencies": {},
   "scripts": {
-    "fullstack": "echo \"Error: no test specified\" && exit 1"
+    "fullstack": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && npm run backend",
+    "frontend": "cd frontend && npm run start"
   },
   "author": "",
   "license": "ISC"
