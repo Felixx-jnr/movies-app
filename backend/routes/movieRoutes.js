@@ -39,9 +39,9 @@ router.get("/top-movies", getTopMovies);
 //GET RANDOM MOVIES
 router.get("/random-movies", getRandomMovies);
 
-///RESTRICTED ROUTES
+//RESTRICTED ROUTES
 //MOVIE REVIEW ROUTES
-router.post("/reviews/:id", checkId, movieReview);
+router.post("/reviews/:id", authenticate, checkId, movieReview);
 
 //ADMIN ROUTES
 //CREATE A MOVIE
