@@ -80,14 +80,14 @@ const MovieDetails = () => {
                   ))}
                 </div>
 
-                <div className="flex justify-center items-center mt-4">
+                {/* <div className="flex justify-center items-center mt-4">
                   <button className=" px-2 py-2 mx-2 rounded-lg font-bold text- text-1xl bg-green-500">
                     Download Now
                   </button>
                   <button className=" px-2 py-2 mx-2 rounded-lg font-bold text- text-1xl bg-red-500">
                     Watch Now
                   </button>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
